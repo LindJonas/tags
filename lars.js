@@ -4,8 +4,6 @@ import MyActorSheet from "./module/sheets/LARSActorSheet.js";
 
 async function preloadHandlebarsTemplates() {
   const templatePaths = [
-    "systems/lars/templates/sheets/partials/character-attributes.hbs",
-    "systems/lars/templates/sheets/partials/character-skills.hbs",
     "systems/lars/templates/sheets/partials/equipment-cards.hbs",
     "systems/lars/templates/sheets/partials/advancedskills-cards.hbs",
     "systems/lars/templates/sheets/partials/apparel-cards.hbs",
@@ -19,7 +17,7 @@ async function preloadHandlebarsTemplates() {
 
 Hooks.once("init", function()
 {
-  CONFIG.brap = brap;
+  CONFIG.lars = lars;
 
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("lars", MyItemSheet, { makeDefault: true });

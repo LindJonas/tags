@@ -1,4 +1,4 @@
-export default class LARSActorSheet extends ActorSheet {
+export default class MyActorSheet extends ActorSheet {
 
   get template()
   {
@@ -6,13 +6,10 @@ export default class LARSActorSheet extends ActorSheet {
   }
 
   activateListeners(html) {
-    //html.find(".sheet-tab").click(this.changeTab.bind(this));
     html.find(".del-item-button").click(this.deleteItem.bind(this));
     html.find(".create-item").click(this.createItem.bind(this));
     html.find(".del-item").click(this.deleteItem.bind(this));
     html.find(".edit-item").click(this.editItem.bind(this));
-    html.find(".tab").click(this._changeTab.bind(this));
-    html.find(".apparel-hyperlink").click(this._onApparelCheck.bind(this));
 
     if(this.actor.owner) {
       html.find(".onCheck").click(this._onCheck.bind(this));
@@ -159,8 +156,9 @@ export default class LARSActorSheet extends ActorSheet {
   }
 
   getData() {
+    console.log("###################### idiot");
     let data = super.getData();
-    data.config = CONFIG.brap;
+    data.config = CONFIG.lars;
     data.equipments = data.items.filter(function (item) { return item.type == "equipment" });
     data.apparel = data.items.filter(function (item) { return item.type == "apparel"});
     data.status = data.items.filter(function (item) { return item.type == "status"});
@@ -169,5 +167,4 @@ export default class LARSActorSheet extends ActorSheet {
     data.misc =  data.items.filter(function(item) { return item.type == "misc"});
     return data;
   }
-
 }
