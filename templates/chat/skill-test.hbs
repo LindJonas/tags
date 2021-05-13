@@ -1,0 +1,32 @@
+<div class="skill-check-result">
+  <!-- Description -->
+  <h2 title="{{data.description}}"> {{data.skillName}} check [{{data.target}}]</h2>
+  <!-- Dice Representation -->
+  <div class="div-dices">
+  {{#each dices as |die|}}
+    <div class="die">
+      {{#if (eq die.result 1)}}
+        <p class="die-normal die-green">{{die.result}}</p>
+      {{else if (eq die.result 10)}}
+        <p class="die-normal die-red">{{die.result}}</p>
+      {{else}}
+        <p class="die-normal">{{die.result}}</p>
+      {{/if}}
+    </div>
+  {{/each}}
+  </div>
+  <!-- Result -->
+  {{#if (gte calculatedResult 0)}}
+    {{#if crit}}
+      <h1 id="success">CRITICAL {{calculatedResult}}</h1>
+    {{else}}
+      <h1 id="success">SUCCESS {{calculatedResult}}</h1>
+    {{/if}}
+  {{else}}
+    {{#if fumble}}
+      <h1 id="failure">FUMBLE {{calculatedResult}}</h1>
+    {{else}}
+      <h1 id="failure">FAILURE {{calculatedResult}}</h1>
+    {{/if}}
+  {{/if}}
+</div>

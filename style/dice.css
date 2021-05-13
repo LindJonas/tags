@@ -1,0 +1,58 @@
+.skill-check-result {
+
+}
+
+.skill-check-result h1{
+  text-align: center;
+}
+
+.skill-check-result h2{
+  text-align: center;
+}
+
+.div-dices {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.die {
+  margin-right: 0px;
+  margin-left: 0px;
+  width: 25px;
+  height: 25px;
+}
+
+.die-normal {
+  background-image: url(../icons/svg/d10-grey.svg);
+  background-size: 24px 24px;
+  font-size: 17px;
+  margin: 0px;
+  width: 25px;
+  height: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.die-green {
+  color: #18520b;
+  text-align: center;
+}
+
+.die-red {
+  color: #ff0000;
+  text-align: center;
+}
+
+#success {
+  color: green;
+}
+
+#failure {
+  color: red;
+}
+
+.dice-tooltip {
+  display: block;
+}

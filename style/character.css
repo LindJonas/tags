@@ -1,0 +1,291 @@
+
+:root {
+  padding: 0;
+  margin: 0;
+}
+
+.window-app.sheet {
+  min-width: 790px;
+  width: 790px;
+}
+
+.sheet header.sheet-header h1 input {
+
+}
+
+.actor-sheet {
+  padding-bottom: 0px;
+}
+
+div.main-sheet {
+  height: 80%;
+  min-width: 770px;
+}
+
+div.sheet-tabs {
+  height: 6%;
+}
+
+div.sheet-tab {
+  display: inline-block;
+  background-color: beige;
+  height: 100%;
+  width: 10%;
+  text-align: center;
+}
+
+div.alternative-content {
+  display: none;
+  height: 100%;
+}
+
+div#main-content {
+  display: block;
+  max-height: 100%;
+  height: 100%;
+}
+
+div.item-div {
+  display: block;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+div.attribute-div {
+  display: flex;
+  height: 60px;
+  Width: 100%;
+  border-bottom: groove;
+}
+
+div.attribute-box {
+  height: 100%;
+  width: 15%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+}
+
+div.attribute-box p{
+  text-align: center;
+  margin: 0px;
+  margin-top: 5px;
+}
+
+div.subbox input{
+
+}
+
+div.subbox{
+  display: flex;
+}
+
+div.sheet-stats-div {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+div.skills-subcontainer-all {
+  width: 25%;
+  border-right: groove;
+  padding-right: 2px;
+}
+
+div.skills-subcontainer {
+    height: auto;
+}
+
+div.advancedskills-subcontainer {
+  max-height: 25%;
+}
+
+div#sheet-character-table {
+  overflow-y: scroll;
+  padding: 0px;
+}
+
+div.secondary-subcontainer {
+  width: 75%;
+  height: 100%;
+  padding-left: 3px;
+}
+
+div.tabs {
+  width: 100%;
+  display: flex;
+}
+
+p.tab {
+  border-style: groove;
+  border-width: 1px;
+  margin-right: 0px;
+  padding-bottom: 0px;
+  text-align: center;
+}
+
+p.item-div-title {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  text-align: center;
+  margin: 0px;
+}
+
+section.info-cards{
+  height: 100%;
+}
+
+div.equipment-card {
+  display: flex;
+  text-align: center;
+  border-width: 1px;
+  border-style: groove;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+div.equipment-card div.item-name{
+  font-size: 13px;
+  width: 25%;
+  border-right-style: groove;
+  border-right-width: 1px;
+  text-align: left;
+}
+
+div.equipment-card div.equipment-card-info{
+  display: flex;
+  width: 70%;
+  text-align: center;
+  font-size: 12px;
+}
+
+div.equipment-card-info-div {
+  border-right: groove;
+  border-right-width: 1px;
+  width: 15%;
+}
+
+div.card-div {
+
+}
+
+div.card-div-tags {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-left: 2px;
+}
+
+
+div.equipment-card div.item-control {
+  display: flex;
+  align-items: center;
+  border-left: groove;
+  border-left-width: 1px;
+  padding-left: 3px;
+}
+
+p.sheet-character-stats-title {
+  font-size: 15px;
+}
+
+table.sheet-character-table {
+  font-weight: normal;
+  padding: 0px;
+  margin: 0px;
+  border-top: none;
+  border-bottom: none;
+}
+
+table.sheet-character-table th{
+  padding: 1px;
+  max-width: 33.33%;
+}
+
+th.skill-attribute-divider {
+  color: black;
+  font-style: italic;
+  font-weight: lighter;
+  text-align: left;
+}
+
+
+th.skillName {
+  width: 85px;
+  min-width: 85px;
+  text-align: left;
+  overflow: visible;
+
+}
+
+th.advSkill {
+  padding-left: 10px;
+}
+
+a.skill-test {
+  margin-left: 10px;
+}
+
+input.skill-input {
+  height: 18px;
+  font-size: 15px;
+  width: 40px;
+  float: right;
+}
+
+div.weapon-card {
+  display: flex;
+}
+
+div.add-advancedskill-div {
+  margin-left: auto;
+  margin-right: 10px;
+  align-items: center;
+  display: flex;
+}
+
+th.governing-attribute {
+   text-align: right;
+   width: 50px;
+   min-width: 50px;
+}
+
+th.advanced-skill-edit-delete {
+  width: 50px;
+  min-width: 50px;
+  margin-left: auto;
+  margin-right: 5px;
+  text-align: right;
+}
+
+div.div-flex {
+  display: flex;
+  width: 100%;
+}
+
+.selected_equipment {
+    border-bottom-style: solid;
+    border-color: brown;
+    background-color: #fafafa;
+    color: brown;
+}
+
+.advancedSkill-create {
+  margin-left: auto;
+}
+
+div.inventory-currency {
+  height: 80px;
+}
+
+div.inventory-items {
+  height: 80%;
+}
+
+textarea.bio-info {
+  resize: none;
+  overflow-y: scroll;
+}

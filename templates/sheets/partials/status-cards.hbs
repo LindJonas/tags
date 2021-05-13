@@ -1,0 +1,22 @@
+<div class="equipment-card" draggable="true">
+    <div class="item-name">
+      <p><b>{{name}}</b></p>
+    </div>
+    <div class="equipment-card-info">
+      <div class="equipment-card-info-div">
+        <div class="card-div">
+          Duration:
+        </div>
+        <div class="card-div">
+          {{data.duration}}
+        </div>
+      </div>
+      <div class="card-div-tags">
+        {{data.description}}
+      </div>
+    </div>
+    <div class="item-control">
+      <a class="edit-item edit-item" data-id="{{_id}}" data-type="status"><i class="fas fa-edit" title="edit status"></i></a>
+      <a class="del-item delete-item" data-id="{{_id}}" data-type="status"><i class="fas fa-trash" title="remove status"></i></a>
+    </div>
+</div>

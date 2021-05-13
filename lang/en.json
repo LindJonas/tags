@@ -1,0 +1,45 @@
+{
+  "lars": {
+    "aspects": {
+      "attributes": "Attributes",
+      "strength": "Strength",
+      "agility": "Agility",
+      "intellect": "Intellect",
+      "perception": "Perception",
+      "charisma": "Charisma"
+    },
+    "actor": {
+      "none": "",
+      "description": "Description"
+    },
+    "equipment": {
+      "description": "Description",
+      "bonus": "Bonus",
+      "grip": "Grip",
+      "range": "Range",
+      "weight": "Weight",
+      "value": "Value",
+      "tags": "Tags"
+    },
+    "apparel": {
+      "none": "",
+      "defence": "Defence",
+      "weight": "Weight",
+      "value": "Value",
+      "tags": "Tags",
+      "description": "Description"
+    },
+    "misc": {
+      "description": "Description",
+      "weight": "Weight",
+      "value": "Value"
+    },
+    "status": {
+      "description": "Description",
+      "duration": "Duration"
+    },
+    "talent": {
+      "description": "Description"
+    }
+  }
+}

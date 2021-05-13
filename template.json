@@ -1,0 +1,101 @@
+{
+  "Actor": {
+    "types":[
+      "character",
+      "beast"
+    ],
+    "templates": {
+      "template_aspects": {
+          "aspects": {
+            "body": {
+              "total" : 9,
+              "strength" : {
+                "value" : 3
+              },
+              "agility" : {
+                "value" : 3
+              },
+              "endurance" : {
+                "value" : 3
+              }
+            },
+            "mind": {
+              "total" : 9,
+              "intelligence" : {
+                "value" : 3
+              },
+              "wits" : {
+                "value" : 3
+              },
+              "willpower" : {
+                "value" : 3
+              }
+            },
+            "spirit": {
+              "total" : 9,
+              "charisma" : {
+                "value" : 3
+              },
+              "manipulation" : {
+                "value" : 3
+              },
+              "composure" : {
+                "value" : 3
+              }
+            }
+          }
+        }
+    },
+    "character": {
+      "templates":["template_aspects"],
+      "description": ""
+    },
+    "beast": {
+      "templates":["aspects"],
+      "description": ""
+    }
+  },
+  "Item":{
+    "types":[
+      "equipment",
+      "apparel",
+      "misc",
+      "profession",
+      "talent",
+      "status"
+    ],
+    "equipment": {
+      "description": "",
+      "bonus": "0",
+      "grip": "2h",
+      "range": "Engaged",
+      "weight": "Normal",
+      "value": "10d",
+      "tags": ""
+    },
+    "apparel": {
+      "description": "",
+      "defence": "5",
+      "weight": "normal",
+      "value": "10d",
+      "tags": ""
+    },
+    "misc":{
+      "description": "",
+      "weight": "normal",
+      "value": "10d"
+    },
+    "profession": {
+      "name": ""
+    },
+    "talent": {
+      "name": "",
+      "description": ""
+    },
+    "status": {
+      "name": "",
+      "duration": "",
+      "description": ""
+    }
+  }
+}

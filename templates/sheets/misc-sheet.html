@@ -1,0 +1,20 @@
+<form class="{{cssClass}}" autocomplete="off" style="resize:">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+    </header>
+    <div>
+      <table>
+        <tr>
+          <th>{{localize "brap.equipment.value"}}</th>
+          <th><input name="data.value" type="text" value="{{data.value}}" </th>
+        </tr>
+        <tr>
+          <th>{{localize "brap.equipment.weight"}}</th>
+          <th><input name="data.weight" type="text" value="{{data.weight}}" </th>
+        </tr>
+      </table>
+    </div>
+    <p><b>{{localize "brap.equipment.description"}}</b></p>
+    <textarea name="data.description" rows="20" cols="80" style="resize:none">{{data.description}}</textarea>
+</form>
