@@ -12,6 +12,7 @@
           data-attribute="{{@key}}"><h3>{{@key}}</h3></a>
         <input class="attributeValue"
           name="data.aspects.{{@../key}}.attributes.{{@key}}.value"
+          data-aspect="{{@../key}}"
           value="{{value}}"/>
       </div>
     {{/each}}

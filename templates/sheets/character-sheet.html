@@ -12,12 +12,24 @@
           {{> "systems/lars/templates/sheets/partials/aspect.hbs" }}
           {{/each}}
           <div class="Professions">
-            <h3>Professions</h3>
-            <!-- Professions -->
+            <div class="Professions-header">
+              <h3>Professions</h3>
+              <a class="create-item" data-id="{{_id}}" data-type="profession"><i class="fas fa-plus"></i></a>
+            </div>
+              {{#each professions as |profession id|}}
+              {{> "systems/lars/templates/sheets/partials/profession-card.hbs" }}
+              {{/each}}
           </div>
         </div>
         <div class="Possessions-div">
-          PISS SHIT AND CUM GOES HERE
+          <div class="item-wrapper">
+            <div class="equipment-div">
+            </div>
+            <div class="item-div">
+            </div>
+          </div>
+          <div class="talent-div">
+          </div>
         </div>
       </div>
     </body>

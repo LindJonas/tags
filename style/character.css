@@ -99,16 +99,36 @@ div.Attribute input{
   text-align: center;
 }
 
-
 div.Professions {
   flex: 2;
   margin: 5px;
   border-style: groove;
 }
 
+div.profession-div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom-style: groove;
+}
+
+div.Professions-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom-style: groove;
+}
+
+div.Professions-header i {
+  align-self: center;
+  padding-top: 3px;
+}
+
+div.Professions-header h3 {
+  align-self: center;
+  margin: 0;
+}
 
 div.Possessions-div {
-  flex: 3;
+  flex: 4;
   margin: 5px;
   border-style: groove;
 }

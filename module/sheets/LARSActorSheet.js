@@ -13,13 +13,13 @@ export default class MyActorSheet extends ActorSheet {
     // Aspects and Attributes
     html.find(".Aspect-Hyperlink").mousedown(this.onAspectMouseDown.bind(this));
     html.find(".Attribute-Hyperlink").click(this.onAttributeClick.bind(this));
+    html.find(".attributeValue").change(this.onAttributeChanged.bind(this));
     // html.on('mousedown', '.attribute-hyperlink', (ev) => {});
 
     super.activateListeners(html);
   }
 
-  async onAttributeClick(event)
-  {
+  async onAttributeClick(event) {
     let attribute = event.currentTarget.dataset.attribute;
     let aspect = event.currentTarget.dataset.aspect;
     let controlBlock = {
@@ -30,6 +30,21 @@ export default class MyActorSheet extends ActorSheet {
       "target": 10
     };
     this._diceRoll(event, controlBlock);
+  }
+
+  onAttributeChanged(event) {
+    let aspect = event.currentTarget.dataset.aspect; //.parentElement.dataset.aspect;
+    let newTotal = 0;
+    for (const prop in this.actor.data.data.aspects[aspect].attributes) {
+
+      newTotal += Number(this.actor.data.data.aspects[aspect].attributes[prop].value);
+      console.log(aspect + " " + newTotal);
+    }
+
+    let path = "data.aspects." + aspect + ".total";
+    let data = {};
+    data[path] = newTotal;
+    this.actor.update(data);
   }
 
   onAspectMouseDown(event)
@@ -70,12 +85,11 @@ export default class MyActorSheet extends ActorSheet {
     rollResult.fumble = true;
 
     for(let i = 0; i < rollResult.dices.length; i++) {
-      if(rollResult.dices[i] != 6)
-      {
+      console.log(rollResult.dices[i]);
+      if(rollResult.dices[i].result != 6) {
         rollResult.crit = false;
       }
-      else if (rollResult.dices[i] != 1)
-      {
+      if (rollResult.dices[i].result != 1) {
         rollResult.fumble = false;
       }
     }
@@ -105,7 +119,6 @@ export default class MyActorSheet extends ActorSheet {
       event.preventDefault();
       let target = event.currentTarget;
       let itemId = target.closest(".edit-item").dataset.id; //.dataset.id;
-      console.log(itemId);
       let item = this.actor.getOwnedItem(itemId);
       item.sheet.render(true);
   }
@@ -144,7 +157,7 @@ export default class MyActorSheet extends ActorSheet {
     data.equipments = data.items.filter(function (item) { return item.type == "equipment" });
     data.apparel = data.items.filter(function (item) { return item.type == "apparel"});
     data.status = data.items.filter(function (item) { return item.type == "status"});
-    data.profession = data.items.filter(function(item) { return item.type == "profession"});
+    data.professions = data.items.filter(function(item) { return item.type == "profession"});
     data.talents = data.items.filter(function(item) { return item.type == "talent"});
     data.misc =  data.items.filter(function(item) { return item.type == "misc"});
 
