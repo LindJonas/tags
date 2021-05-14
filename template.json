@@ -8,51 +8,58 @@
       "template_aspects": {
           "aspects": {
             "body": {
+              "aspectName": "BODY",
               "total" : 9,
-              "strength" : {
-                "value" : 3
-              },
-              "agility" : {
-                "value" : 3
-              },
-              "endurance" : {
-                "value" : 3
+              "attributes": {
+                "strength" : {
+                  "value" : 3
+                },
+                "agility" : {
+                  "value" : 3
+                },
+                "endurance" : {
+                  "value" : 3
+                }
               }
             },
             "mind": {
+              "aspectName": "MIND",
               "total" : 9,
-              "intelligence" : {
-                "value" : 3
-              },
-              "wits" : {
-                "value" : 3
-              },
-              "willpower" : {
-                "value" : 3
+              "attributes": {
+                "intelligence" : {
+                  "value" : 3
+                },
+                "wits" : {
+                  "value" : 3
+                },
+                "willpower" : {
+                  "value" : 3
+                }
               }
             },
             "spirit": {
+              "aspectName": "SPIRIT",
               "total" : 9,
-              "charisma" : {
-                "value" : 3
-              },
-              "manipulation" : {
-                "value" : 3
-              },
-              "composure" : {
-                "value" : 3
+              "attributes": {
+                "charisma" : {
+                  "value" : 3
+                },
+                "manipulation" : {
+                  "value" : 3
+                },
+                "composure" : {
+                  "value" : 3
+                }
               }
             }
           }
         }
     },
     "character": {
-      "templates":["template_aspects"],
-      "description": ""
+      "templates":["template_aspects"]
     },
     "beast": {
-      "templates":["aspects"],
-      "description": ""
+      "templates":["template_aspects"]
     }
   },
   "Item":{

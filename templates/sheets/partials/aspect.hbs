@@ -1,0 +1,16 @@
+<div class="Aspect">
+  <div class="Aspect-Header">
+    <h3 name="aspectName" data-id="{{_id}}">{{aspectName}}</h3>
+    <h4 name="total" data-id="{{_id}}">{{total}}</h4>
+  </div>
+  <div class="Aspect-Body">
+    {{#each attributes as |attribute id|}}
+      <div class="Attribute">
+        <h3>{{@key}}</h3> <!-- data.agility.max @../key -->
+        <input class="attributeValue"
+          name="data.aspects.{{@../key}}.attributes.{{@key}}.value"
+          value="{{value}}"/>
+      </div>
+    {{/each}}
+  </div>
+</div>

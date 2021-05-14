@@ -8,3 +8,97 @@
   min-width: 790px;
   width: 790px;
 }
+
+.sheet header.sheet-header img{
+  height: 100%;
+}
+
+header.sheet-header {
+  height: 100px;
+  display: flex;
+  padding-bottom: 5px;
+  border-bottom-style: groove;
+}
+
+.header-information{
+  display: flex;
+  height: 100%;
+}
+
+.body {
+  display: flex;
+}
+
+div.main-content {
+  display: flex;
+  padding-top: 5px;
+  height: 85%;
+}
+
+div.Aspects-div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+
+div.Aspect {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  border-style: groove;
+}
+
+div.Aspect-Header {
+  flex: 1;
+  display: flex;
+  border-bottom: groove;
+}
+
+div.Aspect-Header h3 {
+  width: 60%;
+  margin: 0;
+}
+
+div.Aspect-Header h4 {
+  text-align: right;
+  padding-right: 5%;
+  width: 40%;
+  margin: 0;
+}
+
+div.Aspect-Body {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+div.Attribute {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.Attribute h3 {
+  margin: 0;
+}
+
+div.Attribute input{
+  width: 4ch;
+  text-align: center;
+}
+
+
+div.Professions {
+  flex: 2;
+  margin: 5px;
+  border-style: groove;
+}
+
+
+div.Possessions-div {
+  flex: 3;
+  margin: 5px;
+  border-style: groove;
+}

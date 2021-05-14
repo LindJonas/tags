@@ -4,8 +4,9 @@ import MyActorSheet from "./module/sheets/LARSActorSheet.js";
 
 async function preloadHandlebarsTemplates() {
   const templatePaths = [
+    "systems/lars/templates/sheets/partials/aspect.hbs",
     "systems/lars/templates/sheets/partials/equipment-cards.hbs",
-    "systems/lars/templates/sheets/partials/advancedskills-cards.hbs",
+    "systems/lars/templates/sheets/partials/profession-card.hbs",
     "systems/lars/templates/sheets/partials/apparel-cards.hbs",
     "systems/lars/templates/sheets/partials/status-cards.hbs",
     "systems/lars/templates/sheets/partials/talent-cards.hbs",

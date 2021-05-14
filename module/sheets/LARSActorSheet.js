@@ -156,7 +156,6 @@ export default class MyActorSheet extends ActorSheet {
   }
 
   getData() {
-    console.log("###################### idiot");
     let data = super.getData();
     data.config = CONFIG.lars;
     data.equipments = data.items.filter(function (item) { return item.type == "equipment" });
@@ -165,6 +164,9 @@ export default class MyActorSheet extends ActorSheet {
     data.profession = data.items.filter(function(item) { return item.type == "profession"});
     data.talents = data.items.filter(function(item) { return item.type == "talent"});
     data.misc =  data.items.filter(function(item) { return item.type == "misc"});
+
+    data.aspects = data.data.aspects;
+
     return data;
   }
 }

@@ -1,11 +1,24 @@
 <form class="actor-sheet {{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img src="{{actor.img}}" data-edit="img" title="{{actor.img}}" height="64" width="64"/>
-        <h1 class="charname"><input class="nameBox" name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+        <img src="{{actor.img}}" data-edit="img" title="{{actor.img}}" height="100" width="100"/>
+        <div class="header-information">
+          <h1 class="charname"><input class="nameBox" name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+        </div>
     </header>
     <body>
-      <div class="Aspects-div">
-        HELLO
+      <div class="main-content">
+        <div class="Aspects-div">
+          {{#each aspects as |aspect id|}}
+          {{> "systems/lars/templates/sheets/partials/aspect.hbs" }}
+          {{/each}}
+          <div class="Professions">
+            <h3>Professions</h3>
+            <!-- Professions -->
+          </div>
+        </div>
+        <div class="Possessions-div">
+          PISS SHIT AND CUM GOES HERE
+        </div>
       </div>
     </body>
 </form>
