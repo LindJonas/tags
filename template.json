@@ -9,6 +9,7 @@
           "aspects": {
             "body": {
               "aspectName": "BODY",
+              "current": 9,
               "total" : 9,
               "attributes": {
                 "strength" : {
@@ -24,6 +25,7 @@
             },
             "mind": {
               "aspectName": "MIND",
+              "current": 9,
               "total" : 9,
               "attributes": {
                 "intelligence" : {
@@ -39,6 +41,7 @@
             },
             "spirit": {
               "aspectName": "SPIRIT",
+              "current": 9,
               "total" : 9,
               "attributes": {
                 "charisma" : {

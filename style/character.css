@@ -53,19 +53,20 @@ div.Aspect {
 div.Aspect-Header {
   flex: 1;
   display: flex;
+  justify-content: space-between;
   border-bottom: groove;
 }
 
 div.Aspect-Header h3 {
   width: 60%;
   margin: 0;
+  align-self: center;
 }
 
-div.Aspect-Header h4 {
-  text-align: right;
-  padding-right: 5%;
-  width: 40%;
+div.Aspect-Header input {
   margin: 0;
+  width: 4ch;
+  text-align: center;
 }
 
 div.Aspect-Body {
@@ -80,8 +81,17 @@ div.Attribute {
   justify-content: space-between;
 }
 
+a.Aspect-Hyperlink {
+  align-self: center;
+}
+
+a.Attribute-Hyperlink {
+  align-self: center;
+}
+
 div.Attribute h3 {
   margin: 0;
+  align-self: center;
 }
 
 div.Attribute input{

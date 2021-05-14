@@ -10,7 +10,7 @@ async function preloadHandlebarsTemplates() {
     "systems/lars/templates/sheets/partials/apparel-cards.hbs",
     "systems/lars/templates/sheets/partials/status-cards.hbs",
     "systems/lars/templates/sheets/partials/talent-cards.hbs",
-    "systems/lars/templates/chat/skill-test.hbs",
+    "systems/lars/templates/chat/skill-tests.hbs",
     "templates/dice/roll.html"
   ];
   return loadTemplates(templatePaths);

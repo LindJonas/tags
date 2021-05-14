@@ -6,103 +6,86 @@ export default class MyActorSheet extends ActorSheet {
   }
 
   activateListeners(html) {
-    html.find(".del-item-button").click(this.deleteItem.bind(this));
     html.find(".create-item").click(this.createItem.bind(this));
-    html.find(".del-item").click(this.deleteItem.bind(this));
+    html.find(".delete-item").click(this.deleteItem.bind(this));
     html.find(".edit-item").click(this.editItem.bind(this));
 
-    if(this.actor.owner) {
-      html.find(".onCheck").click(this._onCheck.bind(this));
-    }
+    // Aspects and Attributes
+    html.find(".Aspect-Hyperlink").mousedown(this.onAspectMouseDown.bind(this));
+    html.find(".Attribute-Hyperlink").click(this.onAttributeClick.bind(this));
+    // html.on('mousedown', '.attribute-hyperlink', (ev) => {});
 
-/*
-    html.on('mousedown', '.attribute-hyperlink', (ev) => {
-
-      var attributeName = ev.currentTarget.dataset.attribute;
-      var attribute = this.actor.data.data[attributeName];
-
-      if (ev.button == 0) {
-        if(attribute.value < attribute.max) {
-          attribute.value += 1;
-        }
-      }
-      else if (ev.button == 2) {
-        if(attribute.value > 0) {
-          attribute.value -= 1;
-        }
-      }
-
-      var path = "data." + attributeName + ".value";
-      let data = {};
-      data[path] = attribute.value;
-      this.actor.update(data);
-    });
-*/
     super.activateListeners(html);
   }
 
-
-  async _onCheck(event) {
-    /*
-    let actorData = this.actor.data;
-
-    var skill = {};
-    skill.name = event.currentTarget.dataset.skill;
-    skill.value = actorData.data[skill.name].value;
-
-    var attribute = {};
-    attribute.name = actorData.data[skill.name].governingAttribute;
-    attribute.value = actorData.data[attribute.name].value;
-
-    var target = Number(skill.value) + Number(attribute.value) + this.equipmentBonus;
-    var description = "" + attribute.name + "(" + attribute.value +
-        ") + " + skill.name + "(" + skill.value + ")";
-
-    var dicesToRoll = 3;
-    var diceType = "d10";
-
-    if(!event.ctrlKey)
-    {
-      console.log("non standard roll");
-    }
-
-    if(this.equipmentBonus > 0){
-      description += " + equipment(" + this.equipmentBonus + ")";
-    }
-
-    var rollFormula = "" + dicesToRoll + diceType;
-    var rollData = {
-          skillName: skill.name,
-          description: description,
-          target: target
+  async onAttributeClick(event)
+  {
+    let attribute = event.currentTarget.dataset.attribute;
+    let aspect = event.currentTarget.dataset.aspect;
+    let controlBlock = {
+      "dicesToRoll": "2d6",
+      "aspect": aspect,
+      "attribute": attribute,
+      "modifier": "", // "" "ADVANTAGE" "DISADVANTAGE"
+      "target": 10
     };
+    this._diceRoll(event, controlBlock);
+  }
 
-    let rollResult = new Roll(rollFormula, rollData).roll();
+  onAspectMouseDown(event)
+  {
+    let aspectName = event.currentTarget.dataset.aspect;
+    let aspect = this.actor.data.data.aspects[aspectName];
+    if (event.button == 0) {
+      if(aspect.current < aspect.total) {
+        aspect.current += 1;
+      }
+    }
+    else if (event.button == 2) {
+      if(aspect.current > 0) {
+        aspect.current -= 1;
+      }
+    }
+    let path = "data.aspects." + aspectName + ".current";
+    let data = {};
+    data[path] = aspect.current;
+    this.actor.update(data);
+  }
+
+
+  async _diceRoll(event, controlBlock) {
+    let actorData = this.actor.data;
+    let attributeBonus = actorData.data.aspects[controlBlock.aspect]
+        .attributes[controlBlock.attribute].value;
+
+    let rollFormula = controlBlock.dicesToRoll;
+    controlBlock["attributeBonus"] = attributeBonus;
+
+    let rollResult = new Roll(rollFormula, controlBlock).roll();
     rollResult.dices = rollResult.terms[rollResult.terms.length - 1].results;
-
-    // Calculate Crit and Fumble.
-    var countMin = 0;
-    var countMax = 0;
-    rollResult.dices.forEach((item) => {
-      if(item.result == 1)
-        ++countMin;
-      else if(item.result == 10)
-        ++countMax;
-    });
-    rollResult.crit = (countMin > 1);
-    rollResult.fumble = (countMax > 1);
-
     rollResult.calculatedResult =
-        skill.value + attribute.value + this.equipmentBonus - rollResult.results[0];
+      rollResult._total + Number(attributeBonus) - controlBlock.target;
 
-    let html = await renderTemplate("systems/basicroleandplay/templates/chat/skill-test.hbs", rollResult);
+    rollResult.crit = true;
+    rollResult.fumble = true;
+
+    for(let i = 0; i < rollResult.dices.length; i++) {
+      if(rollResult.dices[i] != 6)
+      {
+        rollResult.crit = false;
+      }
+      else if (rollResult.dices[i] != 1)
+      {
+        rollResult.fumble = false;
+      }
+    }
+
+    let html = await renderTemplate("systems/lars/templates/chat/skill-test.hbs", rollResult);
     let messageData = {
       speaker: ChatMessage.getSpeaker(),
       content: html
     };
-
     rollResult.toMessage(messageData);
-    */
   }
 
   createItem(event)

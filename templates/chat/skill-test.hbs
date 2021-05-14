@@ -1,13 +1,13 @@
 <div class="skill-check-result">
   <!-- Description -->
-  <h2 title="{{data.description}}"> {{data.skillName}} check [{{data.target}}]</h2>
+  <h2>{{data.attribute}} check: ({{data.target}})</h2>
   <!-- Dice Representation -->
   <div class="div-dices">
   {{#each dices as |die|}}
     <div class="die">
-      {{#if (eq die.result 1)}}
+      {{#if (eq die.result 6)}}
         <p class="die-normal die-green">{{die.result}}</p>
-      {{else if (eq die.result 10)}}
+      {{else if (eq die.result 1)}}
         <p class="die-normal die-red">{{die.result}}</p>
       {{else}}
         <p class="die-normal">{{die.result}}</p>
