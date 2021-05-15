@@ -25,8 +25,8 @@
           <div class="item-wrapper">
             <div class="equipment-div">
               <table class="equipment-information">
-                <thead>
                 <caption>Equipment</caption>
+                <thead>
                 <tr>
                   <td>Name</td>
                   <td>Bonus</td>
@@ -47,8 +47,8 @@
             </div>
             <div class="apparel-div">
               <table class="equipment-information">
-                <thead>
                 <caption>Apparel</caption>
+                <thead>
                 <tr>
                   <td>Name</td>
                   <td>Defence</td>
@@ -69,8 +69,8 @@
           <div class="talent-status-wrapper">
             <div class="status-div">
               <table class="equipment-information">
-                <thead>
                 <caption>Status</caption>
+                <thead>
                 <tr>
                   <td>Name</td>
                   <td>Duration</td>
@@ -89,8 +89,8 @@
             </div>
             <div class="talents-div">
               <table class="equipment-information">
-                <thead>
                 <caption>Talents</caption>
+                <thead>
                 <tr>
                   <td>Name</td>
                   <td class="control">
@@ -99,7 +99,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                  {{#each status as |status id|}}
+                  {{#each talents as |talent id|}}
                   {{> "systems/lars/templates/sheets/partials/talent-cards.hbs" }}
                   {{/each}}
                 </tbody>
