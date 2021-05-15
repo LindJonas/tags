@@ -24,35 +24,86 @@
         <div class="Possessions-div">
           <div class="item-wrapper">
             <div class="equipment-div">
-              <div class="equipment-header">
-                <h3 class="possession-header">EQUIPMENT</h3>
-                <a class="create-item" data-id="{{_id}}" data-type="equipment"><i class="fas fa-plus"></i></a>
-              </div>
               <table class="equipment-information">
+                <thead>
+                <caption>Equipment</caption>
                 <tr>
                   <td>Name</td>
                   <td>Bonus</td>
                   <td>Grip</td>
                   <td>Range</td>
+                  <td class="tags">Tags</td>
+                  <td class="control">
+                    <a class="create-item" data-id="{{_id}}" data-type="equipment"><i class="fas fa-plus"></i></a>
+                  </td>
                 </tr>
+                </thead>
+                <tbody>
                 {{#each equipments as |equipment id|}}
                 {{> "systems/lars/templates/sheets/partials/equipment-cards.hbs" }}
                 {{/each}}
+                </tbody>
               </table>
             </div>
             <div class="apparel-div">
-              <h3 class="possession-header">APPAREL</h3>
-            </div>
-            <div class="item-div">
-              <h3 class="possession-header">ITEMS</h3>
+              <table class="equipment-information">
+                <thead>
+                <caption>Apparel</caption>
+                <tr>
+                  <td>Name</td>
+                  <td>Defence</td>
+                  <td class="tags">Tags</td>
+                  <td class="control">
+                    <a class="create-item" data-id="{{_id}}" data-type="apparel"><i class="fas fa-plus"></i></a>
+                  </td>
+                </tr>
+                </thead>
+                <tbody>
+                  {{#each apparel as |apparel id|}}
+                  {{> "systems/lars/templates/sheets/partials/apparel-cards.hbs" }}
+                  {{/each}}
+                </tbody>
+              </table>
             </div>
           </div>
           <div class="talent-status-wrapper">
             <div class="status-div">
-              <h3 class="possession-header">STATUS</h3>
+              <table class="equipment-information">
+                <thead>
+                <caption>Status</caption>
+                <tr>
+                  <td>Name</td>
+                  <td>Duration</td>
+                  <td>Effect</td>
+                  <td class="control">
+                    <a class="create-item" data-id="{{_id}}" data-type="status"><i class="fas fa-plus"></i></a>
+                  </td>
+                </tr>
+                </thead>
+                <tbody>
+                  {{#each status as |status id|}}
+                  {{> "systems/lars/templates/sheets/partials/status-cards.hbs" }}
+                  {{/each}}
+                </tbody>
+              </table>
             </div>
             <div class="talents-div">
-              <h3 class="possession-header">TALENTS</h3>
+              <table class="equipment-information">
+                <thead>
+                <caption>Talents</caption>
+                <tr>
+                  <td>Name</td>
+                  <td class="control">
+                    <a class="create-item" data-id="{{_id}}" data-type="talent"><i class="fas fa-plus"></i></a>
+                  </td>
+                </tr>
+                </thead>
+                <tbody>
+                  {{#each status as |status id|}}
+                  {{> "systems/lars/templates/sheets/partials/talent-cards.hbs" }}
+                  {{/each}}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

@@ -1,38 +1,11 @@
-<div class="equipment-card" draggable="true" data-id="{{_id}}">
-    <div class="item-name">
-      <p><b><a class="equipment-hyperlink">{{name}}</a></b></p>
-    </div>
-    <div class="equipment-card-info">
-      <div class="equipment-card-info-div">
-        <div class="card-div">
-          Bonus:
-        </div>
-        <div class="card-div">
-          {{data.bonus}}
-        </div>
-      </div>
-      <div class="equipment-card-info-div">
-        <div class="card-div">
-          Range:
-        </div>
-        <div class="card-div">
-          {{data.range}}
-        </div>
-      </div>
-      <div class="equipment-card-info-div">
-        <div class="card-div">
-          Grip:
-        </div>
-        <div class="card-div">
-          {{data.grip}}
-        </div>
-      </div>
-      <div class="card-div-tags">
-        {{data.tags}}
-      </div>
-    </div>
-    <div class="item-control">
-      <a class="edit-item edit-item" data-id="{{_id}}" data-type="equipment"><i class="fas fa-edit" title="edit equipment"></i></a>
-      <a class="del-item delete-item" data-id="{{_id}}" data-type="equipment"><i class="fas fa-trash" title="remove equipment"></i></a>
-    </div>
-</div>
+<tr>
+  <td>{{name}}</td>
+  <td>{{data.bonus}}</td>
+  <td>{{data.grip}}</td>
+  <td>{{data.range}}</td>
+  <td>{{data.tags}}</td>
+  <td>
+    <a class="edit-item" data-id="{{_id}}" data-type="equipment"><i class="fas fa-edit" title="edit equipment"></i></a>
+    <a class="delete-item" data-id="{{_id}}" data-type="equipment"><i class="fas fa-trash" title="remove equipment"></i></a>
+  </td>
+</td>

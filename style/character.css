@@ -45,7 +45,7 @@ div.Aspect {
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin: 5px;
+  margin: 2px;
   border-style: groove;
 }
 
@@ -101,7 +101,7 @@ div.Attribute input{
 
 div.Professions {
   flex: 2;
-  margin: 5px;
+  margin: 2px;
   border-style: groove;
 }
 
@@ -137,33 +137,33 @@ div.Possessions-div {
 
 div.item-wrapper {
   display: flex;
+  flex-direction: column;
   flex: 2;
 }
 
 div.equipment-div {
-  margin: 5px;
+  overflow-y: scroll;
+  margin: 2px;
   flex: 1;
   border-style: groove;
 }
 
-div.equipment-header {
-  display: flex;
-  justify-content: space-between;
+table.equipment-information {
+
 }
 
-table.equipment-information {
-  width: 100%;
+table.equipment-information td {
+  width: auto;
+}
+
+td.tags {
+  width: 40%;
 }
 
 
 div.apparel-div {
-  margin: 5px;
-  flex: 1;
-  border-style: groove;
-}
-
-div.item-div {
-  margin: 5px;
+  overflow-y: scroll;
+  margin: 2px;
   flex: 1;
   border-style: groove;
 }
@@ -174,13 +174,13 @@ div.talent-status-wrapper {
 }
 
 div.status-div {
-  margin: 5px;
+  margin: 2px;
   flex: 1;
   border-style: groove;
 }
 
 div.talents-div {
-  margin: 5px;
+  margin: 2px;
   flex: 1;
   border-style: groove;
 }

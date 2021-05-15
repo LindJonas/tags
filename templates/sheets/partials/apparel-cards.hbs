@@ -1,22 +1,9 @@
-<div class="equipment-card" draggable="true">
-    <div class="item-name">
-      <p><b><a class="apparel-hyperlink" data-id="{{_id}}">{{name}}</a></b></p>
-    </div>
-    <div class="equipment-card-info">
-      <div class="equipment-card-info-div">
-        <div class="card-div">
-          Defence:
-        </div>
-        <div class="card-div">
-          {{data.defence}}
-        </div>
-      </div>
-      <div class="card-div-tags">
-        {{data.tags}}
-      </div>
-    </div>
-    <div class="item-control">
-      <a class="edit-item edit-item" data-id="{{_id}}" data-type="apparel"><i class="fas fa-edit" title="edit apparel"></i></a>
-      <a class="del-item delete-item" data-id="{{_id}}" data-type="apparel"><i class="fas fa-trash" title="remove apparel"></i></a>
-    </div>
-</div>
+<tr>
+  <td>{{name}}</td>
+  <td>{{data.defence}}</td>
+  <td>{{data.tags}}</td>
+  <td>
+    <a class="edit-item" data-id="{{_id}}" data-type="apparel"><i class="fas fa-edit" title="edit equipment"></i></a>
+    <a class="delete-item" data-id="{{_id}}" data-type="apparel"><i class="fas fa-trash" title="remove equipment"></i></a>
+  </td>
+</td>
