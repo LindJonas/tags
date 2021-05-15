@@ -17,7 +17,6 @@ header.sheet-header {
   height: 100px;
   display: flex;
   padding-bottom: 5px;
-  border-bottom-style: groove;
 }
 
 .header-information{
@@ -51,6 +50,7 @@ div.Aspect {
 }
 
 div.Aspect-Header {
+  background-color: hsl(50,100%,80%);
   flex: 1;
   display: flex;
   justify-content: space-between;
@@ -112,6 +112,7 @@ div.profession-div {
 }
 
 div.Professions-header {
+  background-color: hsl(100,100%,80%);
   display: flex;
   justify-content: space-between;
   border-bottom-style: groove;
@@ -129,6 +130,62 @@ div.Professions-header h3 {
 
 div.Possessions-div {
   flex: 4;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+}
+
+div.item-wrapper {
+  display: flex;
+  flex: 2;
+}
+
+div.equipment-div {
   margin: 5px;
+  flex: 1;
   border-style: groove;
+}
+
+div.equipment-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+table.equipment-information {
+  width: 100%;
+}
+
+
+div.apparel-div {
+  margin: 5px;
+  flex: 1;
+  border-style: groove;
+}
+
+div.item-div {
+  margin: 5px;
+  flex: 1;
+  border-style: groove;
+}
+
+div.talent-status-wrapper {
+  flex: 1;
+  display: flex;
+}
+
+div.status-div {
+  margin: 5px;
+  flex: 1;
+  border-style: groove;
+}
+
+div.talents-div {
+  margin: 5px;
+  flex: 1;
+  border-style: groove;
+}
+
+h3.possession-header {
+  text-align: center;
+  margin-bottom: 0px;
 }

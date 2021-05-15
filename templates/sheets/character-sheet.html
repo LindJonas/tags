@@ -24,11 +24,36 @@
         <div class="Possessions-div">
           <div class="item-wrapper">
             <div class="equipment-div">
+              <div class="equipment-header">
+                <h3 class="possession-header">EQUIPMENT</h3>
+                <a class="create-item" data-id="{{_id}}" data-type="equipment"><i class="fas fa-plus"></i></a>
+              </div>
+              <table class="equipment-information">
+                <tr>
+                  <td>Name</td>
+                  <td>Bonus</td>
+                  <td>Grip</td>
+                  <td>Range</td>
+                </tr>
+                {{#each equipments as |equipment id|}}
+                {{> "systems/lars/templates/sheets/partials/equipment-cards.hbs" }}
+                {{/each}}
+              </table>
+            </div>
+            <div class="apparel-div">
+              <h3 class="possession-header">APPAREL</h3>
             </div>
             <div class="item-div">
+              <h3 class="possession-header">ITEMS</h3>
             </div>
           </div>
-          <div class="talent-div">
+          <div class="talent-status-wrapper">
+            <div class="status-div">
+              <h3 class="possession-header">STATUS</h3>
+            </div>
+            <div class="talents-div">
+              <h3 class="possession-header">TALENTS</h3>
+            </div>
           </div>
         </div>
       </div>
