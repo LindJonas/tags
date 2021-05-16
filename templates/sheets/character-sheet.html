@@ -2,7 +2,34 @@
     <header class="sheet-header">
         <img src="{{actor.img}}" data-edit="img" title="{{actor.img}}" height="100" width="100"/>
         <div class="header-information">
-          <h1 class="charname"><input class="nameBox" name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+          <div class="header-information-div" id="name-kin-div">
+            <div class="information-pair-div">
+              <label class="header-info">Name:</label>
+              <input class="nameBox" name="name" type="text" value="{{actor.name}}" placeholder=""/>
+            </div>
+            <div class="information-pair-div">
+              <label class="header-info">Kin:</label>
+              <input class="nameBox" name="data.kin" type="text" value="{{data.kin}}" placeholder=""/>
+            </div>
+          </div>
+          <div class="header-information-div" id="misc-header-div">
+            <div class="information-pair-div">
+              <label class="header-info">Age:</label>
+              <input class="nameBox" name="data.age" type="text" value="{{data.age}}" placeholder=""/>
+            </div>
+            <div class="information-pair-div">
+              <label class="header-info">Rep:</label>
+              <input class="nameBox" name="data.rep" type="text" value="{{data.rep}}" placeholder=""/>
+            </div>
+            <div class="information-pair-div">
+              <label class="header-info">Exp:</label>
+              <input class="nameBox" name="data.exp" type="text" value="{{data.exp}}" placeholder=""/>
+            </div>
+          </div>
+          <div class="header-information-div" id="bio-journal-div">
+            <button>BIO</button>
+            <button>JOURNAL</button>
+          </div>
         </div>
     </header>
     <body>

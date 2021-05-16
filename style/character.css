@@ -17,9 +17,54 @@ header.sheet-header {
   padding-bottom: 5px;
 }
 
-.header-information{
+.header-information {
+  padding: 1ch;
   display: flex;
   height: 100%;
+}
+
+div.header-information-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+div#name-kin-div {
+  display: flex;
+  vertical-align: middle;
+  flex: 3;
+}
+
+div#misc-header-div {
+  display: flex;
+  vertical-align: middle;
+  flex: 2;
+}
+
+div#bio-journal-div {
+  display: flex;
+  vertical-align: middle;
+  flex: 1;
+}
+
+div.information-pair-div {
+  display: flex;
+}
+
+label.header-info {
+  width: 10ch;
+  font-size: 3ch;
+  text-align: left;
+  align-self: center;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+input.nameBox {
+  flex: 4;
+  align-self: center;
+  height: 80%;
 }
 
 .body {

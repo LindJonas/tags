@@ -59,7 +59,11 @@
         }
     },
     "character": {
-      "templates":["template_aspects"]
+      "templates":["template_aspects"],
+      "kin": "",
+      "age": "",
+      "rep": "",
+      "exp": ""
     },
     "beast": {
       "templates":["template_aspects"]
