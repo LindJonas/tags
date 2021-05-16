@@ -15,12 +15,13 @@ export default class MyActorSheet extends ActorSheet {
     html.find(".increment-amount").mousedown(this.onItemAmountMouseDown.bind(this));
 
     html.find(".Attribute-Hyperlink").click(this.onAttributeClick.bind(this));
-    html.find(".attributeValue").change(this.onAttributeChanged.bind(this));
+    //html.find(".attributeValue").change(this.onAttributeChanged.bind(this));
+
+
     // html.on('mousedown', '.attribute-hyperlink', (ev) => {});
 
     this.lastBonus = {};
     this.lastTarget = 10;
-
     super.activateListeners(html);
   }
 
@@ -96,32 +97,21 @@ export default class MyActorSheet extends ActorSheet {
       d.render(true);
     }
   }
-
-  onAttributeChanged(event) {
-    let aspect = event.currentTarget.dataset.aspect; //.parentElement.dataset.aspect;
-    let newTotal = 0;
-    for (const prop in this.actor.data.data.aspects[aspect].attributes) {
-
-      newTotal += Number(this.actor.data.data.aspects[aspect].attributes[prop].value);
-      console.log(aspect + " " + newTotal);
-    }
-
-    let path = "data.aspects." + aspect + ".total";
-    let data = {};
-    data[path] = newTotal;
-    this.actor.update(data);
-  }
-
+  
   onAspectMouseDown(event)
   {
     let aspectName = event.currentTarget.dataset.aspect;
     let aspect = this.actor.data.data.aspects[aspectName];
+
     aspect.current = Number(aspect.current);
 
     if (event.button == 0) {
-      if(aspect.current < aspect.total) {
-        aspect.current += Number(1);
+      let maxAspect = 0;
+      for(const attribute in aspect.attributes) {
+        maxAspect += Number(aspect.attributes[attribute].value);
       }
+      if(aspect.current < maxAspect)
+        aspect.current += Number(1);
     }
     else if (event.button == 2) {
       if(aspect.current > 0) {
