@@ -5,16 +5,21 @@
   <div class="div-dices">
   {{#each dices as |die|}}
     <div class="die">
-      {{#if (eq die.result 6)}}
+      {{#unless die.active}}
+        <p class="die-normal cross">{{die.result}}</p>
+      {{else if (eq die.result 6)}}
         <p class="die-normal die-green">{{die.result}}</p>
       {{else if (eq die.result 1)}}
         <p class="die-normal die-red">{{die.result}}</p>
       {{else}}
         <p class="die-normal">{{die.result}}</p>
-      {{/if}}
+      {{/unless}}
     </div>
   {{/each}}
-  <b class="attribute-bonus">+ {{data.attributeBonus}}</b>
+  <b class="dice-bonus">+ {{data.attributeBonus}}</b>
+  {{#if (gte data.bonus 1)}}
+    <b class="dice-bonus">+ {{data.bonus}}</b>
+  {{/if}}
   </div>
   <!-- Result -->
   {{#if (gte calculatedResult 0)}}

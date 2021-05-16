@@ -26,10 +26,57 @@ export default class MyActorSheet extends ActorSheet {
       "dicesToRoll": "2d6",
       "aspect": aspect,
       "attribute": attribute,
-      "modifier": "", // "" "ADVANTAGE" "DISADVANTAGE"
+      "bonus": 0,
       "target": 10
     };
-    this._diceRoll(event, controlBlock);
+
+    if(event.ctrlKey) {
+      this._diceRoll(event, controlBlock);
+    }
+    else {
+      const template = "systems/lars/templates/sheets/partials/roll-dialog.hbs";
+      let html = await renderTemplate(template, controlBlock);
+
+      let d = new Dialog({
+        title: "" + attribute + " check",
+          content: html,
+          buttons: {
+            disadvantage: {
+              icon: '<i class="fas fa-check"></i>',
+              label: "Disadvantage",
+              callback: html => {
+                let form = html[0].querySelector("form");
+                controlBlock.target = parseInt(form.target.value);
+                controlBlock.bonus = parseInt(form.bonus.value);
+                controlBlock.dicesToRoll = "3d6dh";
+                this._diceRoll(event, controlBlock);
+              }
+            },
+            normal: {
+              icon: '<i class="fas fa-times"></i>',
+              label: "Normal",
+              callback: html => {
+                let form = html[0].querySelector("form");
+                controlBlock.target = parseInt(form.target.value);
+                controlBlock.bonus = parseInt(form.bonus.value);
+                this._diceRoll(event, controlBlock);
+              }
+            },
+            advantage: {
+              icon: '<i class="fas fa-times"></i>',
+              label: "Advantage",
+              callback: html => {
+                let form = html[0].querySelector("form");
+                controlBlock.target = parseInt(form.target.value);
+                controlBlock.bonus = parseInt(form.bonus.value);
+                controlBlock.dicesToRoll = "3d6dl";
+                this._diceRoll(event, controlBlock);
+              }
+            }
+          }
+        });
+      d.render(true);
+    }
   }
 
   onAttributeChanged(event) {
@@ -51,14 +98,16 @@ export default class MyActorSheet extends ActorSheet {
   {
     let aspectName = event.currentTarget.dataset.aspect;
     let aspect = this.actor.data.data.aspects[aspectName];
+    aspect.current = Number(aspect.current);
+
     if (event.button == 0) {
       if(aspect.current < aspect.total) {
-        aspect.current += 1;
+        aspect.current += Number(1);
       }
     }
     else if (event.button == 2) {
       if(aspect.current > 0) {
-        aspect.current -= 1;
+        aspect.current -= Number(1);
       }
     }
     let path = "data.aspects." + aspectName + ".current";
@@ -79,18 +128,19 @@ export default class MyActorSheet extends ActorSheet {
     let rollResult = new Roll(rollFormula, controlBlock).roll();
     rollResult.dices = rollResult.terms[rollResult.terms.length - 1].results;
     rollResult.calculatedResult =
-      rollResult._total + Number(attributeBonus) - controlBlock.target;
+      rollResult._total + Number(attributeBonus) + controlBlock.bonus - controlBlock.target;
 
     rollResult.crit = true;
     rollResult.fumble = true;
 
     for(let i = 0; i < rollResult.dices.length; i++) {
-      console.log(rollResult.dices[i]);
-      if(rollResult.dices[i].result != 6) {
-        rollResult.crit = false;
-      }
-      if (rollResult.dices[i].result != 1) {
-        rollResult.fumble = false;
+      if(rollResult.dices[i].active) {
+        if(rollResult.dices[i].result != 6) {
+          rollResult.crit = false;
+        }
+        if (rollResult.dices[i].result != 1) {
+          rollResult.fumble = false;
+        }
       }
     }
 
@@ -133,7 +183,7 @@ export default class MyActorSheet extends ActorSheet {
     let _content = "<p>Confirm deletion of " + itemType + ": " + item.name + "</p>";
 
     let d = new Dialog({
-      title: "Test Dialog",
+      title: "Confirm Deleation",
         content: _content,
         buttons: {
           one: {

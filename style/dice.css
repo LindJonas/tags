@@ -24,6 +24,28 @@
   height: 25px;
 }
 
+.cross {
+    position: relative;
+    display: inline-block;
+}
+
+.cross::before, .cross::after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.cross::before {
+    border-bottom: 2px solid red;
+    transform: skewY(-45deg);
+}
+.cross::after {
+    border-bottom: 2px solid red;
+    transform: skewY(45deg);
+}
+
+
 .die-normal {
   background-image: url(../icons/svg/d10-grey.svg);
   background-size: 24px 24px;
@@ -40,7 +62,7 @@
   text-align: center;
 }
 
-.attribute-bonus {
+.dice-bonus {
   font-size: 2.5ch;
   margin-left: 5px;
 }

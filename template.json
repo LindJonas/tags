@@ -79,20 +79,18 @@
       "bonus": "0",
       "grip": "2h",
       "range": "Engaged",
-      "weight": "Normal",
       "value": "10d",
       "tags": ""
     },
     "apparel": {
       "description": "",
       "defence": "5",
-      "weight": "normal",
       "value": "10d",
       "tags": ""
     },
     "misc":{
       "description": "",
-      "weight": "normal",
+      "amount": 1,
       "value": "10d"
     },
     "profession": {
@@ -105,6 +103,7 @@
     "status": {
       "name": "",
       "duration": "",
+      "effect": "",
       "description": ""
     }
   }

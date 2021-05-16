@@ -11,6 +11,7 @@
   ],
   "styles":[
     "style/character.css",
+    "style/roll-dialog.css",
     "style/dice.css"
   ],
   "packs":[

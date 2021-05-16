@@ -45,25 +45,46 @@
                 </tbody>
               </table>
             </div>
-            <div class="apparel-div">
-              <table class="equipment-information">
-                <caption>Apparel</caption>
-                <thead>
-                <tr>
-                  <td>Name</td>
-                  <td>Defence</td>
-                  <td class="tags">Tags</td>
-                  <td class="control">
-                    <a class="create-item" data-id="{{_id}}" data-type="apparel"><i class="fas fa-plus"></i></a>
-                  </td>
-                </tr>
-                </thead>
-                <tbody>
-                  {{#each apparel as |apparel id|}}
-                  {{> "systems/lars/templates/sheets/partials/apparel-cards.hbs" }}
-                  {{/each}}
-                </tbody>
-              </table>
+            <div class="apparel-misc-wrapper">
+              <div class="apparel-div">
+                <table class="equipment-information">
+                  <caption>Apparel</caption>
+                  <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Defence</td>
+                    <td class="tags">Tags</td>
+                    <td class="control">
+                      <a class="create-item" data-id="{{_id}}" data-type="apparel"><i class="fas fa-plus"></i></a>
+                    </td>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {{#each apparel as |apparel id|}}
+                    {{> "systems/lars/templates/sheets/partials/apparel-cards.hbs" }}
+                    {{/each}}
+                  </tbody>
+                </table>
+              </div>
+              <div class="misc-div">
+                <table class="equipment-information">
+                  <caption>Items</caption>
+                  <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Amount</td>
+                    <td class="control">
+                      <a class="create-item" data-id="{{_id}}" data-type="misc"><i class="fas fa-plus"></i></a>
+                    </td>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {{#each misc as |misc id|}}
+                    {{> "systems/lars/templates/sheets/partials/misc-cards.hbs" }}
+                    {{/each}}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
           <div class="talent-status-wrapper">

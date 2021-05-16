@@ -1,0 +1,14 @@
+div.roll-dialog-div {
+  display: flex;
+  flex-direction: column;
+}
+
+div.roll-dialog-input-div {
+  display: flex;
+}
+
+.input-partial {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}

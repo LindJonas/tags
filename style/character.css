@@ -5,7 +5,6 @@
 }
 
 .window-app.sheet {
-  min-width: 790px;
   width: 790px;
 }
 
@@ -185,18 +184,28 @@ td.control {
   padding-right: 5px;
 }
 
+div.apparel-misc-wrapper {
+  flex: 1;
+  display: flex;
+}
 
 div.apparel-div {
   overflow-y: scroll;
   margin: 2px;
-  flex: 1;
+  flex: 2;
   border-style: groove;
+}
+
+div.misc-div {
+  flex: 1;
+  margin: 2px;
+  border-style: groove;
+  overflow-y: scroll;
 }
 
 div.talent-status-wrapper {
   flex: 1;
   display: flex;
-  overflow-y: scroll;
 }
 
 div.status-div {
