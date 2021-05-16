@@ -1,6 +1,7 @@
 <div class="skill-check-result">
   <!-- Description -->
-  <h2>{{data.attribute}} check: ({{data.target}})</h2>
+  <h2>{{data.attribute}} check</h2>
+  <h3>Target = {{data.target}}</h3>
   <!-- Dice Representation -->
   <div class="div-dices">
   {{#each dices as |die|}}
@@ -19,6 +20,8 @@
   <b class="dice-bonus">+ {{data.attributeBonus}}</b>
   {{#if (gte data.bonus 1)}}
     <b class="dice-bonus">+ {{data.bonus}}</b>
+  {{else if (lte data.bonus -1)}}
+    <b class="dice-bonus">{{data.bonus}}</b>
   {{/if}}
   </div>
   <!-- Result -->

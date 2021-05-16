@@ -1,10 +1,21 @@
-div.roll-dialog-div {
+div.roll-dialog-form {
   display: flex;
   flex-direction: column;
 }
 
-div.roll-dialog-input-div {
+div.roll-form-group {
   display: flex;
+  justify-content: center;
+}
+
+div.roll-form-group input {
+  width: 4ch;
+  margin-bottom: 2ch;
+}
+
+div.roll-form-group label {
+  font-size: 2ch;
+  margin-right: 1ch;
 }
 
 .input-partial {

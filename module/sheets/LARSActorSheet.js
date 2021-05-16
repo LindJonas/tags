@@ -12,22 +12,34 @@ export default class MyActorSheet extends ActorSheet {
 
     // Aspects and Attributes
     html.find(".Aspect-Hyperlink").mousedown(this.onAspectMouseDown.bind(this));
+    html.find(".increment-amount").mousedown(this.onItemAmountMouseDown.bind(this));
+
     html.find(".Attribute-Hyperlink").click(this.onAttributeClick.bind(this));
     html.find(".attributeValue").change(this.onAttributeChanged.bind(this));
     // html.on('mousedown', '.attribute-hyperlink', (ev) => {});
+
+    this.lastBonus = {};
+    this.lastTarget = 10;
 
     super.activateListeners(html);
   }
 
   async onAttributeClick(event) {
+
     let attribute = event.currentTarget.dataset.attribute;
     let aspect = event.currentTarget.dataset.aspect;
+
+    if(this.lastBonus[attribute] == undefined)
+      this.lastBonus[attribute] = 0;
+
+    console.log(this.lastBonus);
+
     let controlBlock = {
       "dicesToRoll": "2d6",
       "aspect": aspect,
       "attribute": attribute,
-      "bonus": 0,
-      "target": 10
+      "bonus": this.lastBonus[attribute],
+      "target": this.lastTarget
     };
 
     if(event.ctrlKey) {
@@ -42,38 +54,44 @@ export default class MyActorSheet extends ActorSheet {
           content: html,
           buttons: {
             disadvantage: {
-              icon: '<i class="fas fa-check"></i>',
-              label: "Disadvantage",
+              icon: '<i class="fas fa-arrow-down"></i>',
+              label: "Bane",
               callback: html => {
                 let form = html[0].querySelector("form");
                 controlBlock.target = parseInt(form.target.value);
                 controlBlock.bonus = parseInt(form.bonus.value);
+                this.lastTarget = controlBlock.target;
+                this.lastBonus[attribute] = controlBlock.bonus;
                 controlBlock.dicesToRoll = "3d6dh";
                 this._diceRoll(event, controlBlock);
               }
             },
             normal: {
-              icon: '<i class="fas fa-times"></i>',
               label: "Normal",
               callback: html => {
                 let form = html[0].querySelector("form");
                 controlBlock.target = parseInt(form.target.value);
                 controlBlock.bonus = parseInt(form.bonus.value);
+                this.lastTarget = controlBlock.target;
+                this.lastBonus[attribute] = controlBlock.bonus;
                 this._diceRoll(event, controlBlock);
               }
             },
             advantage: {
-              icon: '<i class="fas fa-times"></i>',
-              label: "Advantage",
+              icon: '<i class="fas fa-arrow-up"></i>',
+              label: "Boon",
               callback: html => {
                 let form = html[0].querySelector("form");
                 controlBlock.target = parseInt(form.target.value);
                 controlBlock.bonus = parseInt(form.bonus.value);
+                this.lastTarget = controlBlock.target;
+                this.lastBonus[attribute] = controlBlock.bonus;
                 controlBlock.dicesToRoll = "3d6dl";
                 this._diceRoll(event, controlBlock);
               }
             }
-          }
+          },
+          default: "normal"
         });
       d.render(true);
     }
@@ -116,6 +134,24 @@ export default class MyActorSheet extends ActorSheet {
     this.actor.update(data);
   }
 
+  onItemAmountMouseDown(event)
+  {
+    let itemId = event.currentTarget.dataset.id;
+    let item = this.actor.getOwnedItem(itemId);
+    let newAmount = item.data.data.amount;
+
+    if (event.button == 0) {
+      ++newAmount;
+    }
+    else if (event.button == 2) {
+      if(newAmount > 0)
+        --newAmount;
+    }
+    let data = {};
+    data["data.amount"] = newAmount;
+    item.update(data);
+  }
+
 
   async _diceRoll(event, controlBlock) {
     let actorData = this.actor.data;
@@ -152,7 +188,7 @@ export default class MyActorSheet extends ActorSheet {
     rollResult.toMessage(messageData);
   }
 
-  createItem(event)
+  async createItem(event)
   {
     event.preventDefault();
     let target = event.currentTarget;
@@ -161,7 +197,9 @@ export default class MyActorSheet extends ActorSheet {
       name:"Unnamed",
       type: target.dataset.type
     };
-    return this.actor.createOwnedItem(newItem);
+    let result = await this.actor.createOwnedItem(newItem);
+    if(!event.ctrlKey)
+      this.actor.getOwnedItem(result._id).sheet.render(true);
   }
 
   editItem(event)
@@ -182,23 +220,29 @@ export default class MyActorSheet extends ActorSheet {
     let item = this.actor.getOwnedItem(itemId);
     let _content = "<p>Confirm deletion of " + itemType + ": " + item.name + "</p>";
 
-    let d = new Dialog({
-      title: "Confirm Deleation",
-        content: _content,
-        buttons: {
-          one: {
-            icon: '<i class="fas fa-check"></i>',
-            label: "delete",
-            callback: () => item.delete()
-          },
-          two: {
-            icon: '<i class="fas fa-times"></i>',
-            label: "cancel",
-            callback: () => console.log("canceled")
+    if(event.ctrlKey)
+    {
+      item.delete();
+    }
+    else {
+      let d = new Dialog({
+        title: "Confirm Deleation",
+          content: _content,
+          buttons: {
+            one: {
+              icon: '<i class="fas fa-check"></i>',
+              label: "delete",
+              callback: () => item.delete()
+            },
+            two: {
+              icon: '<i class="fas fa-times"></i>',
+              label: "cancel",
+              callback: () => console.log("canceled")
+            }
           }
-        }
-      });
-      d.render(true);
+        });
+        d.render(true);
+    }
   }
 
   getData() {

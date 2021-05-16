@@ -1,4 +1,3 @@
-
 :root {
   padding: 0;
   margin: 0;
@@ -102,7 +101,7 @@ div.Professions {
   flex: 2;
   margin: 2px;
   border-style: groove;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 div.profession-div {
@@ -129,6 +128,7 @@ div.Professions-header h3 {
 }
 
 div.Possessions-div {
+  overflow-x: hidden;
   flex: 4;
   display: flex;
   flex-direction: column;
@@ -142,21 +142,27 @@ div.item-wrapper {
 }
 
 div.equipment-div {
-  overflow-y: scroll;
+  overflow-y: auto;
   margin: 2px;
   flex: 1;
   border-style: groove;
 }
 
 table.equipment-information {
+  table-layout: fixed;
   margin: 0;
-
 }
 
 table.equipment-information td {
+  text-align: center;
   border-style: inset;
+  width: 10ch;
   padding: 0;
   margin: 0;
+}
+
+table.equipment-information td.tags {
+  width: auto;
 }
 
 table.equipment-information thead td {
@@ -165,6 +171,7 @@ table.equipment-information thead td {
 
 table.equipment-information thead td.control {
   text-align: right;
+  width: 6ch;
 }
 
 caption {
@@ -175,13 +182,10 @@ caption {
   text-shadow: 1px 1px #000;
 }
 
-td.tags {
-
-}
-
-td.control {
+table.equipment-information td.control {
   text-align: right;
   padding-right: 5px;
+  width: 6ch;
 }
 
 div.apparel-misc-wrapper {
@@ -190,17 +194,21 @@ div.apparel-misc-wrapper {
 }
 
 div.apparel-div {
-  overflow-y: scroll;
+  overflow-y: auto;
   margin: 2px;
   flex: 2;
   border-style: groove;
 }
 
 div.misc-div {
+  overflow-y: auto;
   flex: 1;
   margin: 2px;
   border-style: groove;
-  overflow-y: scroll;
+}
+
+a.increment-amount {
+  width: 100%;
 }
 
 div.talent-status-wrapper {
@@ -209,17 +217,17 @@ div.talent-status-wrapper {
 }
 
 div.status-div {
+  overflow-y: auto;
   margin: 2px;
-  flex: 1;
+  flex: 2;
   border-style: groove;
-  overflow-y: scroll;
 }
 
 div.talents-div {
+  overflow-y: auto;
   margin: 2px;
   flex: 1;
   border-style: groove;
-  overflow-y: scroll;
 }
 
 h3.possession-header {

@@ -9,6 +9,9 @@
 .skill-check-result h2{
   text-align: center;
 }
+.skill-check-result h3 {
+  text-align: center;
+}
 
 .div-dices {
   display: flex;
@@ -47,7 +50,8 @@
 
 
 .die-normal {
-  background-image: url(../icons/svg/d10-grey.svg);
+  background-image: url(../icons/svg/dice-d6-solid.svg);
+  fill: orange;
   background-size: 24px 24px;
   font-size: 17px;
   margin: 0px;
@@ -58,7 +62,7 @@
 }
 
 .die-green {
-  color: #18520b;
+  color: hsla(120,100%,20%,1);
   text-align: center;
 }
 
@@ -68,7 +72,7 @@
 }
 
 .die-red {
-  color: #ff0000;
+  color: hsla(0,100%,50%,1);
   text-align: center;
 }
 

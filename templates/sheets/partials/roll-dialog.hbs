@@ -1,10 +1,32 @@
 <form class="roll-dialog-form">
   <div class="roll-form-group">
-    <label>Target</label>
-    <input name="target" value="10"></input>
+    <a class="increment-target" onmousedown="incrementTarget(event)"><label>Target:</label></a>
+    <input id="targetInput" name="target" value="{{target}}"></input>
   </div>
   <div class="roll-form-group">
-    <label>Bonus</label>
-    <input name="bonus" value="0"></input>
+    <a class="increment-bonus" onmousedown="incrementBonus(event)"><label>Bonus:</label></a>
+    <input id="bonusInput" name="bonus" value="{{bonus}}"></input>
   </div>
 </form>
+
+<script>
+  function incrementTarget(event) {
+    let input = document.getElementById("targetInput");
+    if (event.button == 0) {
+      ++input.value;
+    }
+    else if (event.button == 2) {
+      if(input.value > 0)
+        --input.value;
+    }
+  }
+  function incrementBonus(event) {
+    let input = document.getElementById("bonusInput");
+    if (event.button == 0) {
+      ++input.value;
+    }
+    else if (event.button == 2) {
+      --input.value;
+    }
+  }
+</script>
