@@ -93,7 +93,8 @@ div.Aspect {
 }
 
 div.Aspect-Header {
-  background-color: hsl(50,100%,80%);
+  background-color: hsla(230, 100%, 20%, 0.8);
+  color: hsla(0,0%,100%,1);
   flex: 1;
   display: flex;
   justify-content: space-between;
@@ -103,6 +104,7 @@ div.Aspect-Header {
 div.Aspect-Header h3 {
   width: 60%;
   margin: 0;
+  padding-left: 0.2ch;
   align-self: center;
 }
 
@@ -156,7 +158,8 @@ div.profession-div {
 }
 
 div.Professions-header {
-  background-color: hsl(100,100%,80%);
+  background-color: hsla(105, 100%, 20%, 0.8);
+  color: hsla(0,0%,100%,1);
   display: flex;
   justify-content: space-between;
   border-bottom-style: groove;
@@ -168,6 +171,7 @@ div.Professions-header i {
 }
 
 div.Professions-header h3 {
+  padding-left: 0.2ch;
   align-self: center;
   margin: 0;
 }
@@ -219,8 +223,16 @@ table.equipment-information thead td.control {
   width: 6ch;
 }
 
-caption {
-  background-color: hsla(0,0%,0%,0.5);
+table.equipment-information caption {
+  background-color: hsla(20,100%,25%,0.75);
+  border-style: inset;
+  border-bottom-style: none;
+  color: #f0f0e0;
+  text-shadow: 1px 1px #000;
+}
+
+table.equipment-information thead {
+  background-color: hsla(20,100%,25%,0.75);
   border-style: inset;
   border-bottom-style: none;
   color: #f0f0e0;
