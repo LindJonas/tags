@@ -97,7 +97,7 @@ export default class MyActorSheet extends ActorSheet {
       d.render(true);
     }
   }
-  
+
   onAspectMouseDown(event)
   {
     let aspectName = event.currentTarget.dataset.aspect;
@@ -127,7 +127,7 @@ export default class MyActorSheet extends ActorSheet {
   onItemAmountMouseDown(event)
   {
     let itemId = event.currentTarget.dataset.id;
-    let item = this.actor.getOwnedItem(itemId);
+    let item = this.actor.items.get(itemId);
     let newAmount = item.data.data.amount;
 
     if (event.button == 0) {
@@ -182,14 +182,13 @@ export default class MyActorSheet extends ActorSheet {
   {
     event.preventDefault();
     let target = event.currentTarget;
-    let newItem =
-    {
-      name:"Unnamed",
-      type: target.dataset.type
-    };
-    let result = await this.actor.createOwnedItem(newItem);
+    let array = [];
+
+    let result = await this.actor.createEmbeddedDocuments
+      (target.dataset.type, array, null);
+
     if(!event.ctrlKey)
-      this.actor.getOwnedItem(result._id).sheet.render(true);
+      this.actor.items.get(result._id).sheet.render(true);
   }
 
   editItem(event)
@@ -197,7 +196,7 @@ export default class MyActorSheet extends ActorSheet {
       event.preventDefault();
       let target = event.currentTarget;
       let itemId = target.closest(".edit-item").dataset.id; //.dataset.id;
-      let item = this.actor.getOwnedItem(itemId);
+      let item = this.actor.items.get(itemId);
       item.sheet.render(true);
   }
 
@@ -207,7 +206,7 @@ export default class MyActorSheet extends ActorSheet {
     let target = event.currentTarget;
     let itemId = target.closest(".delete-item").dataset.id; //.dataset.id;
     let itemType = target.closest(".delete-item").dataset.type; //.dataset.id;
-    let item = this.actor.getOwnedItem(itemId);
+    let item = this.actor.items.get(itemId);
     let _content = "<p>Confirm deletion of " + itemType + ": " + item.name + "</p>";
 
     if(event.ctrlKey)
@@ -237,6 +236,7 @@ export default class MyActorSheet extends ActorSheet {
 
   getData() {
     let data = super.getData();
+
     data.config = CONFIG.lars;
     data.equipments = data.items.filter(function (item) { return item.type == "equipment" });
     data.apparel = data.items.filter(function (item) { return item.type == "apparel"});
@@ -245,7 +245,9 @@ export default class MyActorSheet extends ActorSheet {
     data.talents = data.items.filter(function(item) { return item.type == "talent"});
     data.misc =  data.items.filter(function(item) { return item.type == "misc"});
 
-    data.aspects = data.data.aspects;
+    data.aspects = data.data.data.aspects;
+
+    console.log(data);
 
     return data;
   }
