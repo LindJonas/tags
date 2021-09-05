@@ -1,36 +1,35 @@
 <form class="actor-sheet {{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img src="{{actor.img}}" data-edit="img" title="{{actor.img}}" height="100" width="100"/>
-        <div class="header-information">
-          <div class="header-information-div" id="name-kin-div">
-            <div class="information-pair-div">
-              <label class="header-info">Name:</label>
-              <input class="nameBox" name="name" type="text" value="{{actor.name}}" placeholder=""/>
-            </div>
-            <div class="information-pair-div">
-              <label class="header-info">Kin:</label>
-              <input class="nameBox" name="data.kin" type="text" value="{{data.kin}}" placeholder=""/>
-            </div>
+      <img class="actor-img" src="{{actor.img}}" data-edit="img" title="{{actor.img}}" />
+
+      <div class="header-information">
+        <div class="name-kin-div">
+          <div class="information-pair-div">
+            <label class="header-info">Name:</label>
+            <input class="nameBox" name="name" type="text" value="{{actor.name}}" placeholder=""/>
           </div>
-          <div class="header-information-div" id="misc-header-div">
+          <div class="information-pair-div">
+            <label class="header-info">Kin:</label>
+            <input class="nameBox" name="data.kin" type="text" value="{{data.data.kin}}" placeholder=""/>
+          </div>
+        </div>
+        <div class="header-divider">
+          <div class="rep-exp-age-div">
             <div class="information-pair-div">
-              <label class="header-info">Age:</label>
-              <input class="nameBox" name="data.age" type="text" value="{{data.age}}" placeholder=""/>
+              <label class="header-info">Exp:</label>
+              <input class="nameBox" name="data.exp" type="text" value="{{data.data.exp}}" placeholder=""/>
             </div>
             <div class="information-pair-div">
               <label class="header-info">Rep:</label>
-              <input class="nameBox" name="data.rep" type="text" value="{{data.rep}}" placeholder=""/>
-            </div>
-            <div class="information-pair-div">
-              <label class="header-info">Exp:</label>
-              <input class="nameBox" name="data.exp" type="text" value="{{data.exp}}" placeholder=""/>
+              <input class="nameBox" name="data.rep" type="text" value="{{data.data.rep}}" placeholder=""/>
             </div>
           </div>
-          <div class="header-information-div" id="bio-journal-div">
+          <div class="bio-journal-div">
             <button>BIO</button>
             <button>JOURNAL</button>
           </div>
         </div>
+      </div>
     </header>
     <body>
       <div class="main-content">

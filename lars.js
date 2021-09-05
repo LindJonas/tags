@@ -21,7 +21,7 @@ async function preloadHandlebarsTemplates() {
 Hooks.once("init", function()
 {
   CONFIG.lars = lars;
-
+  
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("lars", MyItemSheet, { makeDefault: true });
 

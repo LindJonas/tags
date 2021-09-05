@@ -4,8 +4,15 @@ export default class MyItemSheet extends ItemSheet {
   }
 
   getData() {
-    const data = super.getData();
-    data.config = CONFIG.lars;
-    return data;
+    const baseData = super.getData();
+    let sheetData = {
+      owner: this.item.isOwner,
+      editable: this.isEditable,
+      item: baseData.item,
+      data: baseData.item.data.data,
+      config: CONFIG.lars
+    }
+
+    return sheetData;
   }
 }

@@ -3,7 +3,11 @@
     <a class ="Aspect-Hyperlink" data-aspect="{{@key}}">
       <h3 name="aspectName" data-id="{{_id}}">{{aspectName}}</h3>
     </a>
-    <input name="data.aspects.{{@key}}.current" data-id="{{_id}}" value="{{current}}"></input>
+    <div class="Aspect-Header-values">
+      <input name="data.aspects.{{@key}}.current" data-id="{{_id}}" value="{{current}}"></input>
+      <p><b>/</p></b>
+      <input name="data.aspects.{{@key}}.total" data-id="{{_id}}" value="{{total}}"></input>
+    </div>
   </div>
   <div class="Aspect-Body">
     {{#each attributes as |attribute id|}}

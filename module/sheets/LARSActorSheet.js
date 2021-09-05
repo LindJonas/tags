@@ -118,9 +118,10 @@ export default class MyActorSheet extends ActorSheet {
         aspect.current -= Number(1);
       }
     }
-    let path = "data.aspects." + aspectName + ".current";
+    let currentPath = "data.aspects." + aspectName + ".current";
     let data = {};
-    data[path] = aspect.current;
+
+    data[currentPath] = aspect.current;
     this.actor.update(data);
   }
 
@@ -181,11 +182,12 @@ export default class MyActorSheet extends ActorSheet {
   async createItem(event)
   {
     event.preventDefault();
+
     let target = event.currentTarget;
     let array = [];
 
     let result = await this.actor.createEmbeddedDocuments
-      (target.dataset.type, array, null);
+      (target.dataset.type, array);
 
     if(!event.ctrlKey)
       this.actor.items.get(result._id).sheet.render(true);
@@ -195,7 +197,7 @@ export default class MyActorSheet extends ActorSheet {
   {
       event.preventDefault();
       let target = event.currentTarget;
-      let itemId = target.closest(".edit-item").dataset.id; //.dataset.id;
+      let itemId = target.closest(".edit-item").dataset.id; //.dataset.id
       let item = this.actor.items.get(itemId);
       item.sheet.render(true);
   }
@@ -236,7 +238,6 @@ export default class MyActorSheet extends ActorSheet {
 
   getData() {
     let data = super.getData();
-
     data.config = CONFIG.lars;
     data.equipments = data.items.filter(function (item) { return item.type == "equipment" });
     data.apparel = data.items.filter(function (item) { return item.type == "apparel"});
@@ -244,11 +245,7 @@ export default class MyActorSheet extends ActorSheet {
     data.professions = data.items.filter(function(item) { return item.type == "profession"});
     data.talents = data.items.filter(function(item) { return item.type == "talent"});
     data.misc =  data.items.filter(function(item) { return item.type == "misc"});
-
     data.aspects = data.data.data.aspects;
-
-    console.log(data);
-
     return data;
   }
 }

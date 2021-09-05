@@ -13,42 +13,38 @@
 
 header.sheet-header {
   height: 100px;
-  display: flex;
   padding-bottom: 5px;
 }
 
-.header-information {
+div.header-information {
   padding: 1ch;
   display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
-div.header-information-div {
+div.name-kin-div {
+  display: flex;
+
+}
+
+div.rep-exp-age-div {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-}
-
-div#name-kin-div {
-  display: flex;
-  vertical-align: middle;
-  flex: 3;
-}
-
-div#misc-header-div {
-  display: flex;
-  vertical-align: middle;
-  flex: 2;
-}
-
-div#bio-journal-div {
-  display: flex;
-  vertical-align: middle;
-  flex: 1;
 }
 
 div.information-pair-div {
   display: flex;
+}
+
+div.header-divider {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.bio-journal-div {
+  display: flex;
+  flex-direction: column;
 }
 
 label.header-info {
@@ -106,6 +102,10 @@ div.Aspect-Header h3 {
   margin: 0;
   padding-left: 0.2ch;
   align-self: center;
+}
+
+div.Aspect-Header-values {
+  display: flex;
 }
 
 div.Aspect-Header input {
