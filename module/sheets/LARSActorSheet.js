@@ -182,12 +182,12 @@ export default class MyActorSheet extends ActorSheet {
   async createItem(event)
   {
     event.preventDefault();
-
     let target = event.currentTarget;
-    let array = [];
+    let type = target.dataset.type;
 
-    let result = await this.actor.createEmbeddedDocuments
-      (target.dataset.type, array);
+    const actor = this.actor;
+    const data = [{name: "unamed", type: type}];
+    const created = await Item.createDocuments(data, {parent: actor});
 
     if(!event.ctrlKey)
       this.actor.items.get(result._id).sheet.render(true);
