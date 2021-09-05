@@ -190,7 +190,7 @@ export default class MyActorSheet extends ActorSheet {
     const created = await Item.createDocuments(data, {parent: actor});
 
     if(!event.ctrlKey)
-      this.actor.items.get(result._id).sheet.render(true);
+      this.actor.items.get(created[0].id).sheet.render(true);
   }
 
   editItem(event)
