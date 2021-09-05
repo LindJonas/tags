@@ -1,37 +1,42 @@
 <form class="actor-sheet {{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-      <img class="actor-img" src="{{actor.img}}" data-edit="img" title="{{actor.img}}" />
+    </header>
+    <body>
+      <div class="body-div">
+      <div class="header-content">
 
-      <div class="header-information">
-        <div class="name-kin-div">
-          <div class="information-pair-div">
-            <label class="header-info">Name:</label>
-            <input class="nameBox" name="name" type="text" value="{{actor.name}}" placeholder=""/>
-          </div>
-          <div class="information-pair-div">
-            <label class="header-info">Kin:</label>
-            <input class="nameBox" name="data.kin" type="text" value="{{data.data.kin}}" placeholder=""/>
-          </div>
+        <div class="img-div">
+          <img class="actor-img" src="{{actor.img}}" data-edit="img" title="{{actor.img}}" />
         </div>
-        <div class="header-divider">
-          <div class="rep-exp-age-div">
+
+        <div class="header-information">
+          <div class="name-kin-div">
             <div class="information-pair-div">
-              <label class="header-info">Exp:</label>
-              <input class="nameBox" name="data.exp" type="text" value="{{data.data.exp}}" placeholder=""/>
+              <label class="header-info">Name:</label>
+              <input class="nameBox" name="name" type="text" value="{{actor.name}}" placeholder=""/>
             </div>
             <div class="information-pair-div">
-              <label class="header-info">Rep:</label>
-              <input class="nameBox" name="data.rep" type="text" value="{{data.data.rep}}" placeholder=""/>
+              <label class="header-info">Kin:</label>
+              <input class="nameBox" name="data.kin" type="text" value="{{data.data.kin}}" placeholder=""/>
             </div>
           </div>
-          <div class="bio-journal-div">
-            <button>BIO</button>
-            <button>JOURNAL</button>
+          <div class="header-divider">
+            <div class="rep-exp-age-div">
+              <div class="information-pair-div">
+                <label class="header-info">Exp:</label>
+                <input class="nameBox" name="data.exp" type="text" value="{{data.data.exp}}" placeholder=""/>
+              </div>
+              <div class="information-pair-div">
+                <label class="header-info">Rep:</label>
+                <input class="nameBox" name="data.rep" type="text" value="{{data.data.rep}}" placeholder=""/>
+              </div>
+            </div>
+            <div class="bio-journal-div">
+
+            </div>
           </div>
         </div>
       </div>
-    </header>
-    <body>
       <div class="main-content">
         <div class="Aspects-div">
           {{#each aspects as |aspect id|}}
@@ -154,6 +159,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </body>
 </form>

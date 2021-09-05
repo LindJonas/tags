@@ -11,16 +11,37 @@
   height: 100%;
 }
 
-header.sheet-header {
-  height: 100px;
-  padding-bottom: 5px;
+div.body-div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+div.header-content {
+  display: flex;
+  flex: 1;
 }
 
 div.header-information {
+  flex: 4;
   padding: 1ch;
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+div.img-div {
+  flex: 1;
+  border-style: groove;
+}
+
+img.actor-img {
+  border-style: none;
+}
+
+div.header-content img {
+  height: 100%;
+  width: 100%;
 }
 
 div.name-kin-div {
@@ -68,6 +89,7 @@ input.nameBox {
 }
 
 div.main-content {
+  flex: 7;
   display: flex;
   padding-top: 5px;
   height: 85%;
