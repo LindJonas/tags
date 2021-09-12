@@ -4,13 +4,20 @@ div.roll-dialog-form {
 }
 
 div.roll-form-group {
+  align-items: center;
+  display: flex;
+  justify-content:space-around;
+}
+
+div.roll-form-divider {
+  align-items: center;
   display: flex;
   justify-content: center;
+  flex: 1;
 }
 
 div.roll-form-group input {
   width: 4ch;
-  margin-bottom: 2ch;
 }
 
 div.roll-form-group label {

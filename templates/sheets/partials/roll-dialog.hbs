@@ -1,15 +1,28 @@
-<form class="roll-dialog-form">
+<form class="roll-dialog-form" onload="init()">
   <div class="roll-form-group">
-    <a class="increment-target" onmousedown="incrementTarget(event)"><label>Target:</label></a>
-    <input id="targetInput" name="target" value="{{target}}"></input>
-  </div>
-  <div class="roll-form-group">
-    <a class="increment-bonus" onmousedown="incrementBonus(event)"><label>Bonus:</label></a>
-    <input id="bonusInput" name="bonus" value="{{bonus}}"></input>
+    <div class="roll-form-divider">
+      <label id="Opposed">Opposed Roll</label>
+      <input type="checkbox" id="opposed" name="opposed" 
+      {{#if lastOpposed}}
+        checked="true"
+      {{/if}}
+      ></input>
+    </div>
+    <div class="roll-form-divider">
+      <a id="increment-target" onmousedown="incrementTarget(event)"><label>Target:</label></a>
+      <input id="targetInput" name="target" value="{{target}}"/>
+    </div>
   </div>
 </form>
 
 <script>
+
+  function init()
+  {
+    console.log("ARUBA");
+  }
+  // TODO: Refactor and move to js file.
+
   function incrementTarget(event) {
     let input = document.getElementById("targetInput");
     if (event.button == 0) {
@@ -18,15 +31,6 @@
     else if (event.button == 2) {
       if(input.value > 0)
         --input.value;
-    }
-  }
-  function incrementBonus(event) {
-    let input = document.getElementById("bonusInput");
-    if (event.button == 0) {
-      ++input.value;
-    }
-    else if (event.button == 2) {
-      --input.value;
     }
   }
 </script>

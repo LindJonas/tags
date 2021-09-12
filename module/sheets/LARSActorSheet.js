@@ -17,10 +17,9 @@ export default class MyActorSheet extends ActorSheet {
     html.find(".Attribute-Hyperlink").click(this.onAttributeClick.bind(this));
     //html.find(".attributeValue").change(this.onAttributeChanged.bind(this));
 
-
     // html.on('mousedown', '.attribute-hyperlink', (ev) => {});
-
-    this.lastBonus = {};
+    //this.lastBonus = {};
+    this.lastOpposed = false;
     this.lastTarget = 10;
     super.activateListeners(html);
   }
@@ -30,16 +29,11 @@ export default class MyActorSheet extends ActorSheet {
     let attribute = event.currentTarget.dataset.attribute;
     let aspect = event.currentTarget.dataset.aspect;
 
-    if(this.lastBonus[attribute] == undefined)
-      this.lastBonus[attribute] = 0;
-
-    console.log(this.lastBonus);
-
     let controlBlock = {
       "dicesToRoll": "2d6",
       "aspect": aspect,
       "attribute": attribute,
-      "bonus": this.lastBonus[attribute],
+      "lastOpposed": this.lastOpposed,
       "target": this.lastTarget
     };
 
@@ -60,9 +54,9 @@ export default class MyActorSheet extends ActorSheet {
               callback: html => {
                 let form = html[0].querySelector("form");
                 controlBlock.target = parseInt(form.target.value);
-                controlBlock.bonus = parseInt(form.bonus.value);
                 this.lastTarget = controlBlock.target;
-                this.lastBonus[attribute] = controlBlock.bonus;
+                controlBlock.opposed = form.opposed.checked;
+                this.lastOpposed = controlBlock.opposed;
                 controlBlock.dicesToRoll = "3d6dh";
                 this._diceRoll(event, controlBlock);
               }
@@ -72,9 +66,9 @@ export default class MyActorSheet extends ActorSheet {
               callback: html => {
                 let form = html[0].querySelector("form");
                 controlBlock.target = parseInt(form.target.value);
-                controlBlock.bonus = parseInt(form.bonus.value);
                 this.lastTarget = controlBlock.target;
-                this.lastBonus[attribute] = controlBlock.bonus;
+                controlBlock.opposed = form.opposed.checked;
+                this.lastOpposed = controlBlock.opposed;
                 this._diceRoll(event, controlBlock);
               }
             },
@@ -84,9 +78,9 @@ export default class MyActorSheet extends ActorSheet {
               callback: html => {
                 let form = html[0].querySelector("form");
                 controlBlock.target = parseInt(form.target.value);
-                controlBlock.bonus = parseInt(form.bonus.value);
                 this.lastTarget = controlBlock.target;
-                this.lastBonus[attribute] = controlBlock.bonus;
+                controlBlock.opposed = form.opposed.checked;
+                this.lastOpposed = controlBlock.opposed;
                 controlBlock.dicesToRoll = "3d6dl";
                 this._diceRoll(event, controlBlock);
               }
@@ -143,7 +137,6 @@ export default class MyActorSheet extends ActorSheet {
     item.update(data);
   }
 
-
   async _diceRoll(event, controlBlock) {
     let actorData = this.actor.data;
     let attributeBonus = actorData.data.aspects[controlBlock.aspect]
@@ -154,12 +147,18 @@ export default class MyActorSheet extends ActorSheet {
 
     let rollResult = new Roll(rollFormula, controlBlock).roll();
     rollResult.dices = rollResult.terms[rollResult.terms.length - 1].results;
-    rollResult.calculatedResult =
-      rollResult._total + Number(attributeBonus) + controlBlock.bonus - controlBlock.target;
+    rollResult.attributeBonus = attributeBonus;
 
+    rollResult.opposed = controlBlock.opposed;
+    rollResult.calculatedResult = rollResult._total + Number(attributeBonus);
+    if(!controlBlock.opposed)
+    {
+      rollResult.calculatedResult -= controlBlock.target;
+    }
+
+    // CalculateCrit TODO: separate function?
     rollResult.crit = true;
     rollResult.fumble = true;
-
     for(let i = 0; i < rollResult.dices.length; i++) {
       if(rollResult.dices[i].active) {
         if(rollResult.dices[i].result != 6) {

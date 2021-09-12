@@ -313,3 +313,11 @@ h3.possession-header {
   text-align: center;
   margin-bottom: 0px;
 }
+
+div.description-div {
+  height: 70%;
+}
+
+div.description-div textarea {
+  height: 100%;
+}

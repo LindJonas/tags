@@ -1,7 +1,11 @@
 <div class="skill-check-result">
   <!-- Description -->
-  <h2>{{data.attribute}} check</h2>
-  <h3>Target = {{data.target}}</h3>
+  <h2>{{data.attribute}}[{{data.attributeBonus}}] check</h2>
+  {{#unless data.opposed}}
+    <h3>Target = {{data.target}}</h3>
+  {{else}}
+    <h3>Opposed Roll</h3>
+  {{/unless}}
   <!-- Dice Representation -->
   <div class="div-dices">
   {{#each dices as |die|}}
@@ -17,25 +21,24 @@
       {{/unless}}
     </div>
   {{/each}}
-  <b class="dice-bonus">+ {{data.attributeBonus}}</b>
-  {{#if (gte data.bonus 1)}}
-    <b class="dice-bonus">+ {{data.bonus}}</b>
-  {{else if (lte data.bonus -1)}}
-    <b class="dice-bonus">{{data.bonus}}</b>
-  {{/if}}
+    <h3> + {{data.attributeBonus}}</h3>
   </div>
   <!-- Result -->
-  {{#if (gte calculatedResult 0)}}
+  {{#unless data.opposed}}
+    {{#if (gte calculatedResult 0)}}
     {{#if crit}}
-      <h1 id="success">CRITICAL {{calculatedResult}}</h1>
+    <h1 id="success">CRITICAL {{calculatedResult}}</h1>
     {{else}}
-      <h1 id="success">SUCCESS {{calculatedResult}}</h1>
+    <h1 id="success">SUCCESS {{calculatedResult}}</h1>
+    {{/if}}
+    {{else}}
+    {{#if fumble}}
+    <h1 id="failure">FUMBLE {{calculatedResult}}</h1>
+    {{else}}
+    <h1 id="failure">FAILURE {{calculatedResult}}</h1>
+    {{/if}}
     {{/if}}
   {{else}}
-    {{#if fumble}}
-      <h1 id="failure">FUMBLE {{calculatedResult}}</h1>
-    {{else}}
-      <h1 id="failure">FAILURE {{calculatedResult}}</h1>
-    {{/if}}
-  {{/if}}
+    <h1 id="neutral">RESULT {{calculatedResult}}</h1>
+  {{/unless}}
 </div>
