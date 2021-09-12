@@ -4,13 +4,11 @@
     <body>
       <div class="body-div">
       <div class="header-content">
-
         <div class="img-div">
           <img class="actor-img" src="{{actor.img}}" data-edit="img" title="{{actor.img}}" />
         </div>
-
         <div class="header-information">
-          <div class="name-kin-div">
+          <div class="header-information-divider">
             <div class="information-pair-div">
               <label class="header-info">Name:</label>
               <input class="nameBox" name="name" type="text" value="{{actor.name}}" placeholder=""/>
@@ -19,21 +17,36 @@
               <label class="header-info">Kin:</label>
               <input class="nameBox" name="data.kin" type="text" value="{{data.data.kin}}" placeholder=""/>
             </div>
+            <div class="information-pair-div">
+              <label class="header-info">Age:</label>
+              <input class="nameBox" name="data.age" type="text" value="{{data.data.age}}" placeholder=""/>
+            </div>
+            <div class="information-pair-div">
+              <label class="header-info">Fate:</label>
+              <input class="nameBox" name="data.fate" type="text" value="{{data.data.fate}}" placeholder=""/>
+            </div>
           </div>
-          <div class="header-divider">
-            <div class="rep-exp-age-div">
-              <div class="information-pair-div">
-                <label class="header-info">Exp:</label>
-                <input class="nameBox" name="data.exp" type="text" value="{{data.data.exp}}" placeholder=""/>
-              </div>
-              <div class="information-pair-div">
-                <label class="header-info">Rep:</label>
-                <input class="nameBox" name="data.rep" type="text" value="{{data.data.rep}}" placeholder=""/>
-              </div>
+          <div class="header-information-divider">
+            <div class="information-pair-div">
+              <label class="header-info">Fame:</label>
+              <input class="nameBox" name="data.fame" type="text" value="{{data.data.fame}}" placeholder=""/>
             </div>
-            <div class="bio-journal-div">
-
+            <div class="information-pair-div">
+              <label class="header-info">Infamy:</label>
+              <input class="nameBox" name="data.infamy" type="text" value="{{data.data.infamy}}" placeholder=""/>
             </div>
+            <div class="information-pair-div">
+              <label class="header-info">Funds:</label>
+              <input class="nameBox" name="data.funds" type="text" value="{{data.data.funds}}" placeholder=""/>
+            </div>
+            <div class="information-pair-div">
+              <label class="header-info">Exp:</label>
+              <input class="nameBox" name="data.exp" type="text" value="{{data.data.exp}}" placeholder=""/>
+            </div>
+          </div>
+          <div class="header-information-buttons">
+            <button id="journalButton" class="header-button" name="Journal" text="abba">Journal</button>
+            <button id="headerButton" class="header-button" name="Bio">Bio</button>
           </div>
         </div>
       </div>

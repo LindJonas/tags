@@ -19,20 +19,33 @@ div.body-div {
 
 div.header-content {
   display: flex;
-  flex: 1;
 }
 
 div.header-information {
   flex: 4;
-  padding: 1ch;
+  display: flex;
+}
+
+div.header-information-divider {
+  flex: 2;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  border-right-style: groove;
+}
+
+div.header-information-buttons {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+button.header-button {
+
 }
 
 div.img-div {
   flex: 1;
-  border-style: groove;
 }
 
 img.actor-img {
@@ -56,6 +69,12 @@ div.rep-exp-age-div {
 
 div.information-pair-div {
   display: flex;
+  justify-content: space-between;
+}
+
+input.nameBox {
+  width: 20ch;
+  margin-right: 1ch;
 }
 
 div.header-divider {
@@ -73,7 +92,6 @@ label.header-info {
   font-size: 3ch;
   text-align: left;
   align-self: center;
-  flex: 1;
   margin: 0;
   padding: 0;
 }
@@ -91,7 +109,6 @@ input.nameBox {
 div.main-content {
   flex: 20;
   display: flex;
-  padding-top: 5px;
   height: 85%;
 }
 
@@ -312,12 +329,4 @@ div.talents-div {
 h3.possession-header {
   text-align: center;
   margin-bottom: 0px;
-}
-
-div.description-div {
-  height: 70%;
-}
-
-div.description-div textarea {
-  height: 100%;
 }
