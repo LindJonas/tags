@@ -15,6 +15,12 @@ export default class MyActorSheet extends ActorSheet {
     html.find(".increment-amount").mousedown(this.onItemAmountMouseDown.bind(this));
 
     html.find(".Attribute-Hyperlink").click(this.onAttributeClick.bind(this));
+
+
+    html.find(".journalButton").click(this.onJournalButton.bind(this));
+    html.find(".bioButton").click(this.onBioButton.bind(this));
+
+
     //html.find(".attributeValue").change(this.onAttributeChanged.bind(this));
 
     // html.on('mousedown', '.attribute-hyperlink', (ev) => {});
@@ -25,7 +31,6 @@ export default class MyActorSheet extends ActorSheet {
   }
 
   async onAttributeClick(event) {
-
     let attribute = event.currentTarget.dataset.attribute;
     let aspect = event.currentTarget.dataset.aspect;
 
@@ -135,6 +140,16 @@ export default class MyActorSheet extends ActorSheet {
     let data = {};
     data["data.amount"] = newAmount;
     item.update(data);
+  }
+
+  onBioButton()
+  {
+    console.log("Clicked BioButton");
+  }
+
+  onJournalButton()
+  {
+    console.log("Clicked JournalButton");
   }
 
   async _diceRoll(event, controlBlock) {
