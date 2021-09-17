@@ -4,8 +4,8 @@
   "description": "Light Agnostic RPG System",
   "author": "Masajdo",
   "version": 0.01,
-  "minimumCoreVersion": "0.6.4",
-  "compatibleCoreVersion": "0.7.9",
+  "minimumCoreVersion": "0.8.9",
+  "compatibleCoreVersion": "0.8.9",
   "esmodules": [
     "lars.js"
   ],

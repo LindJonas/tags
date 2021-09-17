@@ -16,15 +16,21 @@ export default class MyActorSheet extends ActorSheet {
 
     html.find(".Attribute-Hyperlink").click(this.onAttributeClick.bind(this));
 
-
     html.find(".journalButton").click(this.onJournalButton.bind(this));
     html.find(".bioButton").click(this.onBioButton.bind(this));
-
-
     //html.find(".attributeValue").change(this.onAttributeChanged.bind(this));
+
+    if (this.actor.isOwner) {
+      const onDragStartHandler = ev => this._onDragStart(ev);
+      const onDropHandler = ev => this._onDropHanler(ev);
+      html.find('tr.draggableRow').each((i, li) => {
+        li.addEventListener('dragstart', onDragStartHandler, false);
+        li.addEventListener('drop', onDropHandler, false);
+    })};
 
     // html.on('mousedown', '.attribute-hyperlink', (ev) => {});
     //this.lastBonus = {};
+    this.row = undefined;
     this.lastOpposed = false;
     this.lastTarget = 10;
     super.activateListeners(html);
@@ -147,7 +153,7 @@ export default class MyActorSheet extends ActorSheet {
     console.log("Clicked BioButton");
   }
 
-  onJournalButton()
+  async onJournalButton()
   {
     console.log("Clicked JournalButton");
   }
@@ -249,7 +255,30 @@ export default class MyActorSheet extends ActorSheet {
         d.render(true);
     }
   }
+/*
+  _onDragStart(ev)
+  {
+    this.row = event.target;
+  }
 
+  _onDropHanler(ev)
+  {
+    let children = Array.from(this.row.parentNode.children);
+    let index = children.indexOf(ev.target.parentNode);
+    let dragged = children.indexOf(this.row);
+    if ( index > dragged )
+      children[index].after(this.row);
+    else
+      children[index].before(this.row);
+
+    let draggedId = this.row.id;
+    let targetId = ev.target.parentNode.id;
+
+    console.log(draggedId);
+    console.log(targetId)
+    console.log(this.actor.data.items);
+  }
+*/
   getData() {
     let data = super.getData();
     data.config = CONFIG.lars;

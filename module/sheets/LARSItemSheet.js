@@ -10,7 +10,7 @@ export default class MyItemSheet extends ItemSheet {
       editable: this.isEditable,
       item: baseData.item,
       data: baseData.item.data.data,
-      config: CONFIG.lars
+      config: CONFIG.lars,
     }
 
     return sheetData;

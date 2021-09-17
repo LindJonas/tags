@@ -67,28 +67,28 @@
         </div>
         <div class="Possessions-div">
           <div class="item-wrapper">
-            <div class="equipment-div">
-              <table class="equipment-information">
-                <caption>Equipment</caption>
-                <thead>
-                <tr>
-                  <td>Name</td>
-                  <td>Damage</td>
-                  <td>Grip</td>
-                  <td>Range</td>
-                  <td class="tags">Tags</td>
-                  <td class="control">
-                    <a class="create-item" data-id="{{_id}}" data-type="equipment"><i class="fas fa-plus"></i></a>
-                  </td>
-                </tr>
-                </thead>
-                <tbody>
-                {{#each equipments as |equipment id|}}
-                {{> "systems/lars/templates/sheets/partials/equipment-cards.hbs" }}
-                {{/each}}
-                </tbody>
-              </table>
-            </div>
+              <div class="equipment-div">
+                <table class="equipment-information">
+                  <caption>Equipment</caption>
+                  <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Damage</td>
+                    <td>Grip</td>
+                    <td>Range</td>
+                    <td class="tags">Tags</td>
+                    <td class="control">
+                      <a class="create-item" data-id="{{_id}}" data-type="equipment"><i class="fas fa-plus"></i></a>
+                    </td>
+                  </tr>
+                  </thead>
+                  <tbody class="equipment-list item-list">
+                  {{#each equipments as |equipment id|}}
+                  {{> "systems/lars/templates/sheets/partials/equipment-cards.hbs" equipment inSheet=true }}
+                  {{/each}}
+                  </tbody>
+                </table>
+              </div>
             <div class="apparel-misc-wrapper">
               <div class="apparel-div">
                 <table class="equipment-information">
@@ -122,7 +122,7 @@
                     </td>
                   </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="item-list">
                     {{#each misc as |misc id|}}
                     {{> "systems/lars/templates/sheets/partials/misc-cards.hbs" }}
                     {{/each}}

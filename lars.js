@@ -12,6 +12,7 @@ async function preloadHandlebarsTemplates() {
     "systems/lars/templates/sheets/partials/status-cards.hbs",
     "systems/lars/templates/sheets/partials/talent-cards.hbs",
     "systems/lars/templates/sheets/partials/misc-cards.hbs",
+    "systems/lars/templates/sheets/journal-sheet.html",
     "systems/lars/templates/chat/skill-test.hbs",
     "templates/dice/roll.html"
   ];
@@ -21,7 +22,7 @@ async function preloadHandlebarsTemplates() {
 Hooks.once("init", function()
 {
   CONFIG.lars = lars;
-  
+
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("lars", MyItemSheet, { makeDefault: true });
 
